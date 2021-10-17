@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "Register";
+}
+
+@{
+    Layout = "_LayoutLogin";
+}
+
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <center><img class="hvr-wobble-vertical" src="~/image/logo.png" alt="Logo" style="height:40%; width:40%" />
+                                </div>
+                                </center>
+                                <div class="card-body">
+
+                                   <form method="post">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputNombre">Nombre</label>
+                                            <input type="text" name="nombre" class="form-control join-form" placeholder="Ingrese su Nombre"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputApellido">Apellido</label>
+                                            <input type="text" name="apellido" class="form-control join-form" placeholder="Ingrese su Apellido"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputEdad">Edad</label>
+                                            <input type="number" name="edad" class="form-control join-form" placeholder="Ingrese su Edad"/>
+                                        </div>                                          
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputEmail">Email</label>
+                                            <input type="email" name="email" class="form-control join-form" placeholder="Ingrese su Email"/>
+                                        </div>  
+
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputPassword">Password</label>
+                                            <input type="password" name="password" class="form-control join-form" placeholder="Ingrese su password" />
+                                        </div>
+                                        <div class="form-group mt-2 mb-0"><input type="submit" name="register" class="btn btn-primary btn-block" value="Register" ></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>

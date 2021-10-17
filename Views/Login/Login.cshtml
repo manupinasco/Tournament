@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+@{
+    Layout = "_LayoutLogin";
+}
+
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <center><img class="hvr-wobble-vertical" src="~/image/logo.png" alt="Logo" style="height:40%; width:40%" />
+                                </div>
+                                </center>
+                                <div class="card-body">
+
+                                    <form method="POST">
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputEmail">Email</label>
+                                            <input type="email" name="email" class="form-control join-form" placeholder="Ingrese su Email"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="small mb-1" for="inputPassword">Password</label>
+                                            <input type="password" name="password" class="form-control join-form" placeholder="Ingrese su password" />
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                                                <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-4 mb-0"><input type="submit" name="login" class="btn btn-primary btn-block" value="Login"></div>
+                                        <div class="form-group mt-2 mb-0"><input type="submit" name="register" class="btn btn-primary btn-block" value="Register" asp-action="Register"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
