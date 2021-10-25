@@ -1,20 +1,20 @@
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Liga de Basquet";
 }
 
 @{
     Layout = "_LayoutLogin";
 }
 
+    <div class="col">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
-                <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-5">
+                        <div class="col-lg-8">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                <div class="card-header">
-                                    <center><img class="hvr-wobble-vertical" src="~/image/nbaGrande.png" alt="Logo" />
+                                <div class="card-header card-inicio">
+                                    <center><h5>INICIAR SESIÓN</h5>
                                 </div>
                                 </center>
                                 <div class="card-body">
@@ -34,14 +34,15 @@
                                                 <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
                                             </div>
                                         </div>
-                                        <div class="form-group mt-4 mb-0"><input type="submit" name="login" class="btn btn-primary btn-block" value="Login"></div>
-                                        <div class="form-group mt-2 mb-0"><input type="submit" name="register" class="btn btn-primary btn-block" value="Register" asp-action="Register"></div>
+                                        <div class="form-group mt-4 mb-0"><input type="reset" name="reset" class="btn btn-primary btn-block" value="Cancelar"></div>
+                                        <div class="form-group mt-2 mb-0"><input type="submit" name="login" class="btn btn-primary btn-block" value="Ingresar"></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </main>
         </div>
+    </div>
+
     </div>
