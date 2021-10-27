@@ -1,14 +1,13 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TP_NT.Models
 {
     public class Equipo 
-    {
-        public string Id { get; set; }
-
+    {   
+        [Key]
+        public int Id { get; set; }
         public string Nombre { get; set; }
-
-        public string Conferencia { get; set; }
 
     }
 }
