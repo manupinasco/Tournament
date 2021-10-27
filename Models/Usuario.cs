@@ -1,16 +1,15 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TP_NT.Models
 {
     public class Usuario 
     {
-        public string Id_Usuario { get; set; }
-
+        [Key]
+        public int IdUsuario { get; set; }
         public string Nombre { get; set; }
-
         public string Contraseña { get; set; }
-
-        public Equipo_Usuario Equipo_Usuario { get; set; }
+        public Equipo_Usuario EquipoUsuario { get; set; }
 
     }
 }
