@@ -34,7 +34,7 @@ namespace TP_NT.Migrations
                     b.ToTable("Equipos");
                 });
 
-            modelBuilder.Entity("TP_NT.Models.Equipo_Usuario", b =>
+            modelBuilder.Entity("TP_NT.Models.EquipoUsuario", b =>
                 {
                     b.Property<int>("IdEquipoUsuario")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace TP_NT.Migrations
 
                     b.HasKey("IdEquipoUsuario");
 
-                    b.ToTable("Equipos_Usuario");
+                    b.ToTable("EquiposUsuario");
                 });
 
             modelBuilder.Entity("TP_NT.Models.Jugador", b =>
@@ -123,7 +123,7 @@ namespace TP_NT.Migrations
                     b.ToTable("Posiciones");
                 });
 
-            modelBuilder.Entity("TP_NT.Models.Stats_Jug_X_Partido", b =>
+            modelBuilder.Entity("TP_NT.Models.StatsJugXPartido", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,7 +160,7 @@ namespace TP_NT.Migrations
 
                     b.HasIndex("PartidoIdPartido");
 
-                    b.ToTable("Stats_Jug_X_Partido");
+                    b.ToTable("StatsJugXPartido");
                 });
 
             modelBuilder.Entity("TP_NT.Models.Usuario", b =>
@@ -170,13 +170,22 @@ namespace TP_NT.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Contraseña")
+                    b.Property<string>("Apellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Edad")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("EquipoUsuarioIdEquipoUsuario")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdUsuario");
@@ -216,7 +225,7 @@ namespace TP_NT.Migrations
                     b.Navigation("Visitante");
                 });
 
-            modelBuilder.Entity("TP_NT.Models.Stats_Jug_X_Partido", b =>
+            modelBuilder.Entity("TP_NT.Models.StatsJugXPartido", b =>
                 {
                     b.HasOne("TP_NT.Models.Jugador", "Jugador")
                         .WithMany()
@@ -233,7 +242,7 @@ namespace TP_NT.Migrations
 
             modelBuilder.Entity("TP_NT.Models.Usuario", b =>
                 {
-                    b.HasOne("TP_NT.Models.Equipo_Usuario", "EquipoUsuario")
+                    b.HasOne("TP_NT.Models.EquipoUsuario", "EquipoUsuario")
                         .WithMany()
                         .HasForeignKey("EquipoUsuarioIdEquipoUsuario");
 

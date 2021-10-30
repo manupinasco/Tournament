@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TP_NT.Models
 {
-    public class Equipo_Usuario
+    public class EquipoUsuario
     {
         [Key]
         public int IdEquipoUsuario{get; set;}

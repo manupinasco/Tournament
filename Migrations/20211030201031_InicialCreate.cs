@@ -20,7 +20,7 @@ namespace TP_NT.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Equipos_Usuario",
+                name: "EquiposUsuario",
                 columns: table => new
                 {
                     IdEquipoUsuario = table.Column<int>(type: "int", nullable: false)
@@ -28,7 +28,7 @@ namespace TP_NT.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Equipos_Usuario", x => x.IdEquipoUsuario);
+                    table.PrimaryKey("PK_EquiposUsuario", x => x.IdEquipoUsuario);
                 });
 
             migrationBuilder.CreateTable(
@@ -81,16 +81,19 @@ namespace TP_NT.Migrations
                     IdUsuario = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Contraseña = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Apellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Edad = table.Column<int>(type: "int", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EquipoUsuarioIdEquipoUsuario = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.IdUsuario);
                     table.ForeignKey(
-                        name: "FK_Usuarios_Equipos_Usuario_EquipoUsuarioIdEquipoUsuario",
+                        name: "FK_Usuarios_EquiposUsuario_EquipoUsuarioIdEquipoUsuario",
                         column: x => x.EquipoUsuarioIdEquipoUsuario,
-                        principalTable: "Equipos_Usuario",
+                        principalTable: "EquiposUsuario",
                         principalColumn: "IdEquipoUsuario",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -124,7 +127,7 @@ namespace TP_NT.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Stats_Jug_X_Partido",
+                name: "StatsJugXPartido",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -140,15 +143,15 @@ namespace TP_NT.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stats_Jug_X_Partido", x => x.Id);
+                    table.PrimaryKey("PK_StatsJugXPartido", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Stats_Jug_X_Partido_Jugadores_JugadorIdJugador",
+                        name: "FK_StatsJugXPartido_Jugadores_JugadorIdJugador",
                         column: x => x.JugadorIdJugador,
                         principalTable: "Jugadores",
                         principalColumn: "IdJugador",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Stats_Jug_X_Partido_Partidos_PartidoIdPartido",
+                        name: "FK_StatsJugXPartido_Partidos_PartidoIdPartido",
                         column: x => x.PartidoIdPartido,
                         principalTable: "Partidos",
                         principalColumn: "IdPartido",
@@ -176,13 +179,13 @@ namespace TP_NT.Migrations
                 column: "VisitanteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Stats_Jug_X_Partido_JugadorIdJugador",
-                table: "Stats_Jug_X_Partido",
+                name: "IX_StatsJugXPartido_JugadorIdJugador",
+                table: "StatsJugXPartido",
                 column: "JugadorIdJugador");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Stats_Jug_X_Partido_PartidoIdPartido",
-                table: "Stats_Jug_X_Partido",
+                name: "IX_StatsJugXPartido_PartidoIdPartido",
+                table: "StatsJugXPartido",
                 column: "PartidoIdPartido");
 
             migrationBuilder.CreateIndex(
@@ -194,7 +197,7 @@ namespace TP_NT.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Stats_Jug_X_Partido");
+                name: "StatsJugXPartido");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
@@ -206,7 +209,7 @@ namespace TP_NT.Migrations
                 name: "Partidos");
 
             migrationBuilder.DropTable(
-                name: "Equipos_Usuario");
+                name: "EquiposUsuario");
 
             migrationBuilder.DropTable(
                 name: "Posiciones");

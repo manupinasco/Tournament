@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TP_NT.Models
 {
-    public class Stats_Jug_X_Partido
+    public class StatsJugXPartido
     {
         [Key]
         public int Id {get; set;}

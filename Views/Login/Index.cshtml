@@ -1,3 +1,5 @@
+@model TP_NT.Models.ViewModel.LoginUsuario;
+
 @{
     ViewData["Title"] = "Liga de Basquet";
 }
@@ -21,12 +23,12 @@
 
                                     <form method="POST">
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputEmail">Email</label>
-                                            <input type="email" name="email" class="form-control join-form" placeholder="Ingrese su Email"/>
+                                            <label asp-for="Email" class="small mb-1" for="inputEmail"></label>
+                                            <input asp-for="Email" class="form-control join-form" placeholder="Ingrese su Email"/>
                                         </div>
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputPassword">Password</label>
-                                            <input type="password" name="password" class="form-control join-form" placeholder="Ingrese su password" />
+                                            <label asp-for="Password" for="inputPassword"></label>
+                                            <input asp-for="Password" class="form-control join-form" placeholder="Ingrese su password"/>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox">
