@@ -13,7 +13,8 @@ namespace TP_NT.Controllers
             this._ProyectoDbContext = ProyectoDbContext;
         }
 
-        public IActionResult Index(){
+        public IActionResult Index()
+        {
             return View();
         }
 
@@ -26,20 +27,23 @@ namespace TP_NT.Controllers
         [HttpPost]
         public IActionResult Register(RegistrarUsuario altaUsuario)
         {
-                var usuario = new Usuario { 
+            if (ModelState.IsValid)
+            {
+                var usuario = new Usuario
+                {
                     Nombre = altaUsuario.Nombre,
                     Apellido = altaUsuario.Apellido,
                     Edad = altaUsuario.Edad,
                     Email = altaUsuario.Email,
                     Password = altaUsuario.Password
                 };
-                
+
                 _ProyectoDbContext.Usuarios.Add(usuario);
                 _ProyectoDbContext.SaveChanges();
 
-                return RedirectToAction("index","Home");
-            
-
+                return RedirectToAction("index", "Home");
+            }
+            return View();
         }
         
 

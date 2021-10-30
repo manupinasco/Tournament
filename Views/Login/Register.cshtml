@@ -24,22 +24,27 @@
                                         <div class="form-group">
                                             <label asp-for="Nombre" class="small mb-1" for="inputNombre"></label>
                                             <input  asp-for="Nombre" class="form-control join-form"  placeholder="Ingrese su nombre"/>
+                                            <span asp-validation-for="Nombre" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
                                             <label asp-for="Apellido" class="small mb-1" for="inputApellido"></label>
                                             <input asp-for="Apellido"class="form-control join-form" placeholder="Ingrese su apellido"/>
+                                            <span asp-validation-for="Apellido" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
                                             <label asp-for="Edad" class="small mb-1" for="inputEdad"></label>
                                             <input asp-for="Edad" class="form-control join-form" placeholder="Ingrese su edad"/>
+                                            <span asp-validation-for="Edad" class="text-danger"></span>
                                         </div>                                          
                                         <div class="form-group">
                                             <label asp-for="Email" class="small mb-1" for="inputEmail"></label>
                                             <input asp-for="Email" class="form-control join-form" placeholder="Ingrese su email"/>
+                                            <span asp-validation-for="Email" class="text-danger"></span>
                                         </div>  
                                         <div class="form-group">
                                             <label asp-for="Password" class="small mb-1" for="inputPassword"></label>
                                             <input asp-for="Password" class="form-control join-form" placeholder="Ingrese su password" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>                                                                      
                                         <div class="form-group mt-4 mb-0"><input type="reset" name="reset" class="btn btn-primary btn-block" value="Cancelar"></div>
                                         <div class="form-group mt-2 mb-0"><input type="submit" name="login" class="btn btn-primary btn-block" value="Enviar"></div>
