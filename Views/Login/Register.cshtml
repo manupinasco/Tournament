@@ -1,3 +1,5 @@
+@model TP_NT.Models.ViewModel.RegistrarUsuario;
+
 @{
     ViewData["Title"] = "Register";
 }
@@ -12,36 +14,36 @@
             <main>
                     <div class="row justify-content-center">
                         <div class="col-lg-9 animate__bounceIn">
-                            <div class="card shadow-lg border-0 rounded-lg mt-3">
+                            <div class="card shadow-lg border-0 rounded-lg mt-1">
                                 <div class="card-header card-inicio">
                                     <center><h5>REGISTRO</h5></center>
                                 </div>    
                                 <div class="card-body">
-
-                                   <form method="post">
+                                   <form asp-action="Register">
+                                       <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputNombre">Nombre</label>
-                                            <input type="text" name="nombre" class="form-control join-form" placeholder="Ingrese su Nombre"/>
+                                            <label asp-for="Nombre" class="small mb-1" for="inputNombre"></label>
+                                            <input  asp-for="Nombre" class="form-control join-form"  placeholder="Ingrese su nombre"/>
                                         </div>
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputApellido">Apellido</label>
-                                            <input type="text" name="apellido" class="form-control join-form" placeholder="Ingrese su Apellido"/>
+                                            <label asp-for="Apellido" class="small mb-1" for="inputApellido"></label>
+                                            <input asp-for="Apellido"class="form-control join-form" placeholder="Ingrese su apellido"/>
                                         </div>
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputEdad">Edad</label>
-                                            <input type="number" name="edad" class="form-control join-form" placeholder="Ingrese su Edad"/>
+                                            <label asp-for="Edad" class="small mb-1" for="inputEdad"></label>
+                                            <input asp-for="Edad" class="form-control join-form" placeholder="Ingrese su edad"/>
                                         </div>                                          
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputEmail">Email</label>
-                                            <input type="email" name="email" class="form-control join-form" placeholder="Ingrese su Email"/>
+                                            <label asp-for="Email" class="small mb-1" for="inputEmail"></label>
+                                            <input asp-for="Email" class="form-control join-form" placeholder="Ingrese su email"/>
                                         </div>  
-
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputPassword">Password</label>
-                                            <input type="password" name="password" class="form-control join-form" placeholder="Ingrese su password" />
-                                        </div>
+                                            <label asp-for="Password" class="small mb-1" for="inputPassword"></label>
+                                            <input asp-for="Password" class="form-control join-form" placeholder="Ingrese su password" />
+                                        </div>                                                                      
                                         <div class="form-group mt-4 mb-0"><input type="reset" name="reset" class="btn btn-primary btn-block" value="Cancelar"></div>
-                                        <div class="form-group mt-2 mb-0"><input type="submit" name="login" class="btn btn-primary btn-block" value="Enviar"></div>                                    </form>
+                                        <div class="form-group mt-2 mb-0"><input type="submit" name="login" class="btn btn-primary btn-block" value="Enviar"></div>
+                                        </form>
                                 </div>
                             </div>
                         </div>

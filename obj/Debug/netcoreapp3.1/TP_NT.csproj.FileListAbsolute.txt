@@ -102,7 +102,6 @@ C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.TagHelpers.input.
 C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.TagHelpers.output.cache
 C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorCoreGenerate.cache
 C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Login\Register.cshtml.g.cs
 C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -120,3 +119,5 @@ C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.dll
 C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.pdb
 C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.genruntimeconfig.cache
 C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Torneo\GetAll.cshtml.g.cs
+C:\Users\fefe\Desktop\elTP\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Torneo\Create.cshtml.g.cs
