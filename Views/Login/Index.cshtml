@@ -20,15 +20,17 @@
                                 </div>
                                 </center>
                                 <div class="card-body">
-
-                                    <form method="POST">
+                                    <form asp-action="Index">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <div class="form-group">
                                             <label asp-for="Email" class="small mb-1" for="inputEmail"></label>
                                             <input asp-for="Email" class="form-control join-form" placeholder="Ingrese su Email"/>
+                                            <span asp-validation-for="Email" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
                                             <label asp-for="Password" for="inputPassword"></label>
                                             <input asp-for="Password" class="form-control join-form" placeholder="Ingrese su password"/>
+                                            <span asp-validation-for="Password" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox">

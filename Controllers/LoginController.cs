@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using TP_NT.Database;
 using TP_NT.Models;
@@ -13,8 +14,22 @@ namespace TP_NT.Controllers
             this._ProyectoDbContext = ProyectoDbContext;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(LoginUsuario usuario)
+        {   
+            if (ModelState.IsValid){
+                {
+                    var usuarioBuscado = _ProyectoDbContext.Usuarios
+                    .Where(x => x.Email.Equals(usuario.Email) && x.Password.Equals(usuario.Password)).FirstOrDefault();
+                    return RedirectToAction("index", "Home");
+                }
+            }
             return View();
         }
 
