@@ -1,7 +1,9 @@
-﻿@{
+﻿@model List<TP_NT.Models.Jugador>
+
+@{
     ViewData["Title"] = "Home Page";
 }
-
+ 
 
 
 <div class="row">
@@ -75,46 +77,28 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Jugador1</td>
-          <td><img src="~/image/lakers.png"></td>
-          <td><span class="badge badge-primary">BASE</span></td>
-          <td><span class="badge badge-danger">600.000</span></td>
-          <td><span class="badge badge-success">5</span></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jugador2</td>
-          <td><img src="~/image/bulls.png"></td>
-          <td><span class="badge badge-primary">ESCOLTA</span></td>
-          <td><span class="badge badge-danger">520.000</span></td>
-          <td><span class="badge badge-success">5</span></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Jugador3</td>
-          <td><img src="~/image/pistons.png"></td>
-          <td><span class="badge badge-primary">ALERO</span></td>
-          <td><span class="badge badge-danger">100.000</span></td>
-          <td><span class="badge badge-success">5</span></td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Jugador4</td>
-          <td><img src="~/image/raptors.png"></td>
-          <td><span class="badge badge-primary">ALA-PIVOT</span></td>
-          <td><span class="badge badge-danger">850.000</span></td>
-          <td><span class="badge badge-success">5</span></td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td>Jugador5</td>
-          <td><img src="~/image/spurs.png"></td>
-          <td><span class="badge badge-primary">PIVOT</span></td>
-          <td><span class="badge badge-danger">200.000</span></td>
-          <td><span class="badge badge-success">5</span></td>
-        </tr>
+        @{int pos = 0;}
+
+        @foreach (var item in @ViewBag.tit)
+        {
+          <tr>
+            <th scope="row">@pos</th>
+            <td>@item.Nombre + " " + @item.Apellido</td>
+            <td><span class="badge badge-primary">@item.Equipo.Nombre</span></td>
+            <td><span class="badge badge-primary">@item.Posicion</span></td>
+            <td><span class="badge badge-danger">@item.ValorContrato</span></td>
+          </tr>
+        }
+        @foreach (var item in @ViewBag.sup)
+        {
+          <tr>
+            <th scope="row">@pos</th>
+            <td>@item.Nombre + " " + @item.Apellido</td>
+            <td><span class="badge badge-primary">@item.Equipo.Nombre</span></td>
+            <td><span class="badge badge-primary">@item.Posicion</span></td>
+            <td><span class="badge badge-danger">@item.ValorContrato</span></td>
+          </tr>
+        }
       </tbody>
     </table>
     <nav aria-label="...">

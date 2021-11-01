@@ -12,5 +12,7 @@ namespace TP_NT.Models
         public Equipo Equipo { get; set; }
         public Posicion Posicion { get; set; }
 
+        public double ValorContrato { get; set; }
+
     }
 }
