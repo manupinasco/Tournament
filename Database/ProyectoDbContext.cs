@@ -20,6 +20,8 @@ namespace TP_NT.Database {
         public DbSet<Usuario> Usuarios {get; set; }
 
         public DbSet<Posicion> Posiciones {get; set; }
+
+        public DbSet<Torneo> Torneos {get; set; }
 }
 
 }
