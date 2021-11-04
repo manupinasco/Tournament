@@ -24,13 +24,54 @@ namespace TP_NT.Controllers
 
         public IActionResult Index()
         {
-            var equipo = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 1).Select(x => x.EquipoUsuario);
-            var titulares = equipo.Select(x => x.Titular);
-            var suplentes = equipo.Select(x => x.Suplente);
-            ViewBag.tit = titulares;
-            ViewBag.sup = suplentes;
+         //   var equipo = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 1).Select(x => x.EquipoUsuario);
+          //  var titulares = equipo.Select(x => x.Titular);
+          //  var suplentes = equipo.Select(x => x.Suplente);
+           // ViewBag.tit = titulares;
+           // ViewBag.sup = suplentes;
 
 
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult CrearTorneo()
+        {
+            return View();
+        }
+    
+        [HttpPost]
+        public IActionResult CrearTorneo(Torneo torneo)
+        {
+            if (ModelState.IsValid)
+            {
+                var t= new Torneo
+                {
+                    Nombre = torneo.Nombre,
+                    // Cómo traer al creador en formato Objeto Creador = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 1),
+
+                };
+
+                _proyectoDbContext.Torneos.Add(t);
+                _proyectoDbContext.SaveChanges();
+
+                return RedirectToAction("CrearTorneo", "Home");
+            }
+            return View();
+        } 
+
+        public IActionResult UnirseTorneo()
+        {
+            return View();
+        }
+
+        public IActionResult MisTorneos()
+        {
+            return View();
+        }
+
+        public IActionResult Perfil()
+        {
             return View();
         }
 
