@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using TP_NT.Models;
 using TP_NT.Database;
 using Microsoft.EntityFrameworkCore;
+using TP_NT.Models.ViewModel;
 
 namespace TP_NT.Controllers
 {
@@ -24,9 +25,9 @@ namespace TP_NT.Controllers
 
         public IActionResult Index()
         {
-         //   var equipo = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 1).Select(x => x.EquipoUsuario);
-          //  var titulares = equipo.Select(x => x.Titular);
-          //  var suplentes = equipo.Select(x => x.Suplente);
+           // var equipo = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == ).Select(x => x.EquipoUsuario);
+           // var titulares = equipo.Select(x => x.Titular);
+           // var suplentes = equipo.Select(x => x.Suplente);
            // ViewBag.tit = titulares;
            // ViewBag.sup = suplentes;
 
@@ -56,6 +57,43 @@ namespace TP_NT.Controllers
                 _proyectoDbContext.SaveChanges();
 
                 return RedirectToAction("CrearTorneo", "Home");
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult CrearEquipo()
+        {
+            var jugadores = _proyectoDbContext.Jugadores;
+            var pos = _proyectoDbContext.Posiciones.ToArray();
+            
+            var datos = new DatosFormEquipo 
+            {
+                Jugadores = jugadores,
+                Posicion = pos
+            };
+
+
+            return View(datos);
+        }
+    
+        [HttpPost]
+        public IActionResult CrearEquipo(EquipoUsuario equipoUsuario)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                var equipo = new EquipoUsuario
+                {
+                    Titular = equipoUsuario.Titular,
+                    Suplente = equipoUsuario.Suplente
+
+                };
+
+                _proyectoDbContext.EquiposUsuario.Add(equipo);
+                _proyectoDbContext.SaveChanges();
+
+                return RedirectToAction("Index", "Home");
             }
             return View();
         } 

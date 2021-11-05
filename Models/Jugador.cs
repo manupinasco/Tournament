@@ -10,7 +10,7 @@ namespace TP_NT.Models
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public Equipo Equipo { get; set; }
-        public Posicion Posicion { get; set; }
+        public Posiciones Posicion { get; set; }
 
         public double ValorContrato { get; set; }
 

@@ -1,0 +1,20 @@
+@model TP_NT.Models.ViewModel.DatosFormEquipo
+
+@{
+    ViewData["Title"] = "Crear Equipo";
+}
+    <form asp-controller="CrearEquipo" asp-action="Crear" method="POST">
+        @foreach (var item in Model.Posicion)
+        {
+            <fieldset>  
+                <legend>@item.ToString()</legend>
+                @foreach (var it in Model.Jugadores) {
+                    @if (it.Posicion.ToString().Equals(item.ToString()))
+                    {
+                        <input type="checkbox" name="jug"  onclick="return ValidateJugSelection();">@it.Nombre<br>   
+                    }
+                }
+            </fieldset>
+        }
+        <div class="form-group mt-2 mb-0"><input type="submit" name="create" class="btn btn-primary btn-block" value="Crear"></div>
+    </form>  

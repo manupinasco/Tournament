@@ -7,7 +7,7 @@ namespace TP_NT.Models
     public class EquipoUsuario
     {
         [Key]
-        public int IdEquipoUsuario{get; set;}
+        public int IdEquipoUsuario{get; set;} 
         public ICollection<Jugador> Titular {get; set;}
         public ICollection<Jugador> Suplente {get; set;}
     }
