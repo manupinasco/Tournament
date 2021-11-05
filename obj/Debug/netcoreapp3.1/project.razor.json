@@ -14442,6 +14442,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\CrearEquipo.cshtml",
+      "TargetPath": "Views\\Home\\CrearEquipo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
