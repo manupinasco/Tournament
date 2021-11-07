@@ -32,19 +32,6 @@ namespace TP_NT.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Posiciones",
-                columns: table => new
-                {
-                    idPos = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Pos = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Posiciones", x => x.idPos);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Partidos",
                 columns: table => new
                 {
@@ -83,7 +70,7 @@ namespace TP_NT.Migrations
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Apellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EquipoId = table.Column<int>(type: "int", nullable: true),
-                    PosicionidPos = table.Column<int>(type: "int", nullable: true),
+                    Posicion = table.Column<int>(type: "int", nullable: false),
                     ValorContrato = table.Column<double>(type: "float", nullable: false),
                     EquipoUsuarioIdEquipoUsuario = table.Column<int>(type: "int", nullable: true),
                     EquipoUsuarioIdEquipoUsuario1 = table.Column<int>(type: "int", nullable: true)
@@ -108,12 +95,6 @@ namespace TP_NT.Migrations
                         column: x => x.EquipoUsuarioIdEquipoUsuario1,
                         principalTable: "EquiposUsuario",
                         principalColumn: "IdEquipoUsuario",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Jugadores_Posiciones_PosicionidPos",
-                        column: x => x.PosicionidPos,
-                        principalTable: "Posiciones",
-                        principalColumn: "idPos",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -211,11 +192,6 @@ namespace TP_NT.Migrations
                 column: "EquipoUsuarioIdEquipoUsuario1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Jugadores_PosicionidPos",
-                table: "Jugadores",
-                column: "PosicionidPos");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Partidos_LocalId",
                 table: "Partidos",
                 column: "LocalId");
@@ -277,9 +253,6 @@ namespace TP_NT.Migrations
 
             migrationBuilder.DropTable(
                 name: "Partidos");
-
-            migrationBuilder.DropTable(
-                name: "Posiciones");
 
             migrationBuilder.DropTable(
                 name: "Equipos");

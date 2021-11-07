@@ -10,7 +10,7 @@ using TP_NT.Database;
 namespace TP_NT.Migrations
 {
     [DbContext(typeof(ProyectoDbContext))]
-    [Migration("20211104230203_InitialCreate")]
+    [Migration("20211105050650_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,7 +70,7 @@ namespace TP_NT.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PosicionidPos")
+                    b.Property<int>("Posicion")
                         .HasColumnType("int");
 
                     b.Property<double>("ValorContrato")
@@ -83,8 +83,6 @@ namespace TP_NT.Migrations
                     b.HasIndex("EquipoUsuarioIdEquipoUsuario");
 
                     b.HasIndex("EquipoUsuarioIdEquipoUsuario1");
-
-                    b.HasIndex("PosicionidPos");
 
                     b.ToTable("Jugadores");
                 });
@@ -121,21 +119,6 @@ namespace TP_NT.Migrations
                     b.HasIndex("VisitanteId");
 
                     b.ToTable("Partidos");
-                });
-
-            modelBuilder.Entity("TP_NT.Models.Posicion", b =>
-                {
-                    b.Property<int>("idPos")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Pos")
-                        .HasColumnType("int");
-
-                    b.HasKey("idPos");
-
-                    b.ToTable("Posiciones");
                 });
 
             modelBuilder.Entity("TP_NT.Models.StatsJugXPartido", b =>
@@ -252,13 +235,7 @@ namespace TP_NT.Migrations
                         .WithMany("Titular")
                         .HasForeignKey("EquipoUsuarioIdEquipoUsuario1");
 
-                    b.HasOne("TP_NT.Models.Posicion", "Posicion")
-                        .WithMany()
-                        .HasForeignKey("PosicionidPos");
-
                     b.Navigation("Equipo");
-
-                    b.Navigation("Posicion");
                 });
 
             modelBuilder.Entity("TP_NT.Models.Partido", b =>

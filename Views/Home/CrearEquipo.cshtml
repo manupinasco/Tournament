@@ -3,7 +3,24 @@
 @{
     ViewData["Title"] = "Crear Equipo";
 }
-    <form asp-controller="CrearEquipo" asp-action="Crear" method="POST">
+    <h1 id="plata" value="3000">3000</h1>
+    <form asp-controller="Home" asp-action="CrearEquipo" method="POST">
+        @{int pos = 0;}
+        @{string posi;}
+        @foreach (var item in Model.Posicion)
+        {
+            <fieldset>  
+                <legend>@item.ToString()</legend>
+                @{posi = @item.ToString();}
+                @foreach (var it in Model.Jugadores) {
+                    @if (it.Posicion.ToString().Equals(item.ToString()))
+                    {
+                        <input type="checkbox" id="@posi" asp-for="@Model.jugsT[@it.IdJugador]" onchange="return ValidateJugSelection(@posi, @it.ValorContrato, @it.IdJugador);">
+                        <label>@it.Nombre </label>  
+                    }
+                }
+            </fieldset>
+        }
         @foreach (var item in Model.Posicion)
         {
             <fieldset>  
@@ -11,10 +28,11 @@
                 @foreach (var it in Model.Jugadores) {
                     @if (it.Posicion.ToString().Equals(item.ToString()))
                     {
-                        <input type="checkbox" name="jug"  onclick="return ValidateJugSelection();">@it.Nombre<br>   
+                        <input type="checkbox" id="pos" asp-for="@Model.jugsS[@it.IdJugador]" onchange="return ValidateJugSelectionSup(this, @it.ValorContrato, @it.IdJugador);">
+                        <label>@it.Nombre</label>   
                     }
                 }
             </fieldset>
         }
-        <div class="form-group mt-2 mb-0"><input type="submit" name="create" class="btn btn-primary btn-block" value="Crear"></div>
+        <button type="submit">Crear </button>
     </form>  
