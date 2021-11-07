@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TP_NT.Models
 {
+    public enum Posiciones
+    {     
+      BASE,ESCOLTA,ALERO,ALA_PIVOT,PIVOT
+    }
     public class Jugador 
     {
         [Key]

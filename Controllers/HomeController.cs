@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -18,18 +19,26 @@ namespace TP_NT.Controllers
 
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ProyectoDbContext ProyectoDbContext)
         {
-            _logger = logger;
+            this._proyectoDbContext = ProyectoDbContext;
         }
 
         public IActionResult Index()
         {
-           // var equipo = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == ).Select(x => x.EquipoUsuario);
-           // var titulares = equipo.Select(x => x.Titular);
-           // var suplentes = equipo.Select(x => x.Suplente);
-           // ViewBag.tit = titulares;
-           // ViewBag.sup = suplentes;
+           var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 3).FirstOrDefault();
+           if(usuario.EquipoUsuario != null) {
+                var equipo = usuario.EquipoUsuario;
+                var titulares = equipo.Titular.ToList();
+                ViewBag.tit = titulares;
+                var suplentes = equipo.Suplente.ToList();
+                ViewBag.sup = suplentes;
+           }
+           else {
+               ViewBag.tit = null;
+               ViewBag.sup = null;
+           }
+           
 
 
             return View();
@@ -64,8 +73,9 @@ namespace TP_NT.Controllers
         [HttpGet]
         public IActionResult CrearEquipo()
         {
-            var jugadores = _proyectoDbContext.Jugadores;
-            var pos = _proyectoDbContext.Posiciones.ToArray();
+            var jugadores = _proyectoDbContext.Jugadores.ToList();
+
+            var pos = Enum.GetNames(typeof(Posiciones));
             
             var datos = new DatosFormEquipo 
             {
@@ -78,22 +88,31 @@ namespace TP_NT.Controllers
         }
     
         [HttpPost]
-        public IActionResult CrearEquipo(EquipoUsuario equipoUsuario)
+        public IActionResult CrearEquipo(DatosFormEquipo equipoUsuario)
         {
-            
-            if (ModelState.IsValid)
-            {
-                var equipo = new EquipoUsuario
-                {
-                    Titular = equipoUsuario.Titular,
-                    Suplente = equipoUsuario.Suplente
+            if (ModelState.IsValid) {
+                var equipo = new EquipoUsuario();
 
-                };
+                for(int i = 0; i < 10; i++) {
+                    if(equipoUsuario.jugsT[i]) {
+                        equipo.Titular.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == i).FirstOrDefault());
+                    }
+                }
+
+                for(int j = 0; j < 10; j++) {
+                    if(equipoUsuario.jugsS[j]) {
+                         equipo.Suplente.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == j).FirstOrDefault());
+                    }
+                }
 
                 _proyectoDbContext.EquiposUsuario.Add(equipo);
+                var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 3).FirstOrDefault();
+                var nuevoUsuario = usuario;
+                nuevoUsuario.EquipoUsuario = equipo;
+                _proyectoDbContext.Entry(usuario).CurrentValues.SetValues(nuevoUsuario);
                 _proyectoDbContext.SaveChanges();
 
-                return RedirectToAction("Index", "Home");
+                return View("Views/Home/Index.cshtml");
             }
             return View();
         } 

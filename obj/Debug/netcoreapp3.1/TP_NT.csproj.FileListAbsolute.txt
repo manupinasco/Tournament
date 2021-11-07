@@ -291,3 +291,4 @@ C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\UnirseTorneo.cshtml.g.cs
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Ranking.cshtml.g.cs
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Perfil.cshtml.g.cs
+C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\CrearEquipo.cshtml.g.cs

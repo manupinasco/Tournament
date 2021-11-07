@@ -50,7 +50,8 @@ namespace TP_NT.Controllers
                     Apellido = altaUsuario.Apellido,
                     Edad = altaUsuario.Edad,
                     Email = altaUsuario.Email,
-                    Password = altaUsuario.Password
+                    Password = altaUsuario.Password,
+                    EquipoUsuario = null
                 };
 
                 _ProyectoDbContext.Usuarios.Add(usuario);
