@@ -10,6 +10,7 @@ using TP_NT.Models;
 using TP_NT.Database;
 using Microsoft.EntityFrameworkCore;
 using TP_NT.Models.ViewModel;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace TP_NT.Controllers
 {
@@ -73,14 +74,52 @@ namespace TP_NT.Controllers
         [HttpGet]
         public IActionResult CrearEquipo()
         {
-            var jugadores = _proyectoDbContext.Jugadores.ToList();
-
-            var pos = Enum.GetNames(typeof(Posiciones));
+            var jugadoresb = _proyectoDbContext.Jugadores
+                            .Where(x => x.Posicion == Posiciones.BASE)
+                            .Select (x => new SelectListItem {
+                                Text = x.Nombre,
+                                Value = x.ValorContrato.ToString()
+                            })
+                            .ToList();;
+            
+            var jugadorese = _proyectoDbContext.Jugadores
+                            .Where(x => x.Posicion == Posiciones.ESCOLTA)
+                            .Select (x => new SelectListItem {
+                                Text = x.Nombre,
+                                Value = x.ValorContrato.ToString()
+                            })
+                            .ToList();;
+            
+            var jugadoresa = _proyectoDbContext.Jugadores
+                            .Where(x => x.Posicion == Posiciones.ALERO)
+                            .Select (x => new SelectListItem {
+                                Text = x.Nombre,
+                                Value = x.ValorContrato.ToString()
+                            })
+                            .ToList();;
+            var jugadoresap = _proyectoDbContext.Jugadores
+                            .Where(x => x.Posicion == Posiciones.ALA_PIVOT)
+                            .Select (x => new SelectListItem {
+                                Text = x.Nombre,
+                                Value = x.ValorContrato.ToString()
+                            })
+                            .ToList();;
+            
+            var jugadoresp = _proyectoDbContext.Jugadores
+                            .Where(x => x.Posicion == Posiciones.PIVOT)
+                            .Select (x => new SelectListItem {
+                                Text = x.Nombre,
+                                Value = x.IdJugador.ToString()
+                            })
+                            .ToList();;
             
             var datos = new DatosFormEquipo 
             {
-                Jugadores = jugadores,
-                Posicion = pos
+                JugadoresBase = jugadoresb,
+                JugadoresEscolta = jugadorese,
+                JugadoresAlero = jugadoresa,
+                JugadoresAlaPivot = jugadoresap,
+                JugadoresPivot = jugadoresp
             };
 
 
@@ -90,20 +129,24 @@ namespace TP_NT.Controllers
         [HttpPost]
         public IActionResult CrearEquipo(DatosFormEquipo equipoUsuario)
         {
-            if (ModelState.IsValid) {
-                var equipo = new EquipoUsuario();
-
-                for(int i = 0; i < 10; i++) {
-                    if(equipoUsuario.jugsT[i]) {
-                        equipo.Titular.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == i).FirstOrDefault());
+            if(ModelState.IsValid) {
+                _proyectoDbContext.Jugadores.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.BaseTitular).FirstOrDefault());
+                var equipo = new EquipoUsuario{
+                    Titular = new List<Jugador> {
+                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.BaseTitular).FirstOrDefault(),
+                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.EscoltaTitular).FirstOrDefault(),
+                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AleroTitular).FirstOrDefault(),
+                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AlaPivotTitular).FirstOrDefault(),
+                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.PivotTitular).FirstOrDefault()
+                    },
+                    Suplente = new List<Jugador> {
+                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.BaseSuplente).FirstOrDefault(),
+                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.EscoltaSuplente).FirstOrDefault(),
+                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AleroSuplente).FirstOrDefault(),
+                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AlaPivotSuplente).FirstOrDefault(),
+                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.PivotSuplente).FirstOrDefault()
                     }
-                }
-
-                for(int j = 0; j < 10; j++) {
-                    if(equipoUsuario.jugsS[j]) {
-                         equipo.Suplente.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == j).FirstOrDefault());
-                    }
-                }
+                };
 
                 _proyectoDbContext.EquiposUsuario.Add(equipo);
                 var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 3).FirstOrDefault();
@@ -111,7 +154,6 @@ namespace TP_NT.Controllers
                 nuevoUsuario.EquipoUsuario = equipo;
                 _proyectoDbContext.Entry(usuario).CurrentValues.SetValues(nuevoUsuario);
                 _proyectoDbContext.SaveChanges();
-
                 return View("Views/Home/Index.cshtml");
             }
             return View();

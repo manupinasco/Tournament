@@ -3,36 +3,87 @@
 @{
     ViewData["Title"] = "Crear Equipo";
 }
-    <h1 id="plata" value="3000">3000</h1>
-    <form asp-controller="Home" asp-action="CrearEquipo" method="POST">
-        @{int pos = 0;}
-        @{string posi;}
-        @foreach (var item in Model.Posicion)
-        {
-            <fieldset>  
-                <legend>@item.ToString()</legend>
-                @{posi = @item.ToString();}
-                @foreach (var it in Model.Jugadores) {
-                    @if (it.Posicion.ToString().Equals(item.ToString()))
-                    {
-                        <input type="checkbox" id="@posi" asp-for="@Model.jugsT[@it.IdJugador]" onchange="return ValidateJugSelection(@posi, @it.ValorContrato, @it.IdJugador);">
-                        <label>@it.Nombre </label>  
-                    }
-                }
-            </fieldset>
-        }
-        @foreach (var item in Model.Posicion)
-        {
-            <fieldset>  
-                <legend>@item.ToString()</legend>
-                @foreach (var it in Model.Jugadores) {
-                    @if (it.Posicion.ToString().Equals(item.ToString()))
-                    {
-                        <input type="checkbox" id="pos" asp-for="@Model.jugsS[@it.IdJugador]" onchange="return ValidateJugSelectionSup(this, @it.ValorContrato, @it.IdJugador);">
-                        <label>@it.Nombre</label>   
-                    }
-                }
-            </fieldset>
-        }
-        <button type="submit">Crear </button>
-    </form>  
+
+<div class="row">
+        <div class="col-md-4">
+            <form asp-action="CrearEquipo">
+                
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <div class="form-group">
+                    <label asp-for="JugadoresBase" class="control-label"></label>
+                    <select class="form-control" asp-for ="BaseTitular" asp-items="@Model.JugadoresBase"> 
+                    </select>
+                    <span asp-validation-for="BaseTitular" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JugadoresEscolta" class="control-label"></label>
+                    <select class="form-control" asp-for ="EscoltaTitular" asp-items="@Model.JugadoresEscolta"> 
+                    </select>
+                    <span asp-validation-for="EscoltaTitular" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JugadoresAlero" class="control-label"></label>
+                    <select class="form-control" asp-for ="AleroTitular" asp-items="@Model.JugadoresAlero"> 
+                    </select>
+                    <span asp-validation-for="AleroTitular" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JugadoresAlaPivot" class="control-label"></label>
+                    <select class="form-control" asp-for ="AlaPivotTitular" asp-items="@Model.JugadoresAlaPivot"> 
+                    </select>
+                    <span asp-validation-for="AlaPivotTitular" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JugadoresPivot" class="control-label"></label>
+                    <select class="form-control" asp-for ="PivotTitular" asp-items="@Model.JugadoresPivot"> 
+                    </select>
+                    <span asp-validation-for="PivotTitular" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JugadoresBase" class="control-label"></label>
+                    <select class="form-control" asp-for ="BaseSuplente" asp-items="@Model.JugadoresBase"> 
+                    </select>
+                    <span asp-validation-for="BaseSuplente" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JugadoresEscolta" class="control-label"></label>
+                    <select class="form-control" asp-for ="EscoltaSuplente" asp-items="@Model.JugadoresEscolta"> 
+                    </select>
+                    <span asp-validation-for="EscoltaSuplente" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JugadoresAlero" class="control-label"></label>
+                    <select class="form-control" asp-for ="AleroSuplente" asp-items="@Model.JugadoresAlero"> 
+                    </select>
+                    <span asp-validation-for="AleroSuplente" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JugadoresAlaPivot" class="control-label"></label>
+                    <select class="form-control" asp-for ="AlaPivotSuplente" asp-items="@Model.JugadoresAlaPivot"> 
+                    </select>
+                    <span asp-validation-for="AlaPivotSuplente" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="JugadoresPivot" class="control-label"></label>
+                    <select class="form-control" asp-for ="PivotSuplente" asp-items="@Model.JugadoresPivot"> 
+                    </select>
+                    <span asp-validation-for="PivotSuplente" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Guardar Equipo" class="btn btn-primary" />
+                </div>
+                
+            </form>
+        </div>
+</div>
