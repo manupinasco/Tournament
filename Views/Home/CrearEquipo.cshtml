@@ -5,17 +5,15 @@
 }
     <h1 id="plata" value="3000">3000</h1>
     <form asp-controller="Home" asp-action="CrearEquipo" method="POST">
-        @{int pos = 0;}
-        @{string posi;}
+
         @foreach (var item in Model.Posicion)
         {
             <fieldset>  
                 <legend>@item.ToString()</legend>
-                @{posi = @item.ToString();}
                 @foreach (var it in Model.Jugadores) {
                     @if (it.Posicion.ToString().Equals(item.ToString()))
                     {
-                        <input type="checkbox" id="@posi" asp-for="@Model.jugsT[@it.IdJugador]" onchange="return ValidateJugSelection(@posi, @it.ValorContrato, @it.IdJugador);">
+                        <input type="checkbox" id="pos" asp-for="@Model.jugsT[@it.IdJugador]" onchange="return ValidateJugSelection(this, @it.ValorContrato, @it.IdJugador);">
                         <label>@it.Nombre </label>  
                     }
                 }

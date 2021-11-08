@@ -14,5 +14,7 @@ namespace TP_NT.Models.ViewModel
 
         public bool[] jugsT = new bool[10];
         public bool[] jugsS = new bool[10];
+
+        
     }
 }

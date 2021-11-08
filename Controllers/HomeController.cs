@@ -90,30 +90,7 @@ namespace TP_NT.Controllers
         [HttpPost]
         public IActionResult CrearEquipo(DatosFormEquipo equipoUsuario)
         {
-            if (ModelState.IsValid) {
-                var equipo = new EquipoUsuario();
 
-                for(int i = 0; i < 10; i++) {
-                    if(equipoUsuario.jugsT[i]) {
-                        equipo.Titular.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == i).FirstOrDefault());
-                    }
-                }
-
-                for(int j = 0; j < 10; j++) {
-                    if(equipoUsuario.jugsS[j]) {
-                         equipo.Suplente.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == j).FirstOrDefault());
-                    }
-                }
-
-                _proyectoDbContext.EquiposUsuario.Add(equipo);
-                var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 3).FirstOrDefault();
-                var nuevoUsuario = usuario;
-                nuevoUsuario.EquipoUsuario = equipo;
-                _proyectoDbContext.Entry(usuario).CurrentValues.SetValues(nuevoUsuario);
-                _proyectoDbContext.SaveChanges();
-
-                return View("Views/Home/Index.cshtml");
-            }
             return View();
         } 
 
