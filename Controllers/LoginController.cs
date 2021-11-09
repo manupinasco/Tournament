@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -32,11 +33,12 @@ namespace TP_NT.Controllers
                     return sb.ToString();
         }
 
-       [HttpGet]
-        public IActionResult Index()
-        {
+        [HttpGet]
+        public IActionResult Index(string returnUrl) {
+            TempData["UrlIngreso"] = returnUrl;
             return View();
         }
+
 
         [HttpPost]
         public IActionResult Index(LoginUsuario credenciales)
@@ -105,12 +107,12 @@ namespace TP_NT.Controllers
         }
         
         [Authorize]
-        [HttpPost]
+        [HttpGet]
         public IActionResult Salir()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Login");
         }
 
         [Authorize]

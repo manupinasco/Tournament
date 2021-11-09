@@ -18,7 +18,7 @@ namespace TP_NT.Controllers
     {
         private ProyectoDbContext _proyectoDbContext;
 
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
         public HomeController(ProyectoDbContext ProyectoDbContext)
         {
@@ -27,22 +27,26 @@ namespace TP_NT.Controllers
 
         public IActionResult Index()
         {
-           var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 3).FirstOrDefault();
-           if(usuario.EquipoUsuario != null) {
-                var equipo = usuario.EquipoUsuario;
-                var titulares = equipo.Titular.ToList();
-                ViewBag.tit = titulares;
-                var suplentes = equipo.Suplente.ToList();
-                ViewBag.sup = suplentes;
-           }
-           else {
-               ViewBag.tit = null;
-               ViewBag.sup = null;
-           }
-           
-
-
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 3).FirstOrDefault();
+                if (usuario.EquipoUsuario != null)
+                {
+                    var equipo = usuario.EquipoUsuario;
+                    var titulares = equipo.Titular.ToList();
+                    ViewBag.tit = titulares;
+                    var suplentes = equipo.Suplente.ToList();
+                    ViewBag.sup = suplentes;
+                }
+                else
+                {
+                    ViewBag.tit = null;
+                    ViewBag.sup = null;   
+                }
+                
+                return View();
+            }
+            return RedirectToAction("Index", "Login");
         }
 
         [HttpGet]
@@ -80,7 +84,7 @@ namespace TP_NT.Controllers
                                 Text = x.Nombre,
                                 Value = x.ValorContrato.ToString()
                             })
-                            .ToList();;
+                            .ToList();
             
             var jugadorese = _proyectoDbContext.Jugadores
                             .Where(x => x.Posicion == Posiciones.ESCOLTA)
@@ -88,7 +92,7 @@ namespace TP_NT.Controllers
                                 Text = x.Nombre,
                                 Value = x.ValorContrato.ToString()
                             })
-                            .ToList();;
+                            .ToList();
             
             var jugadoresa = _proyectoDbContext.Jugadores
                             .Where(x => x.Posicion == Posiciones.ALERO)
@@ -96,14 +100,14 @@ namespace TP_NT.Controllers
                                 Text = x.Nombre,
                                 Value = x.ValorContrato.ToString()
                             })
-                            .ToList();;
+                            .ToList();
             var jugadoresap = _proyectoDbContext.Jugadores
                             .Where(x => x.Posicion == Posiciones.ALA_PIVOT)
                             .Select (x => new SelectListItem {
                                 Text = x.Nombre,
                                 Value = x.ValorContrato.ToString()
                             })
-                            .ToList();;
+                            .ToList();
             
             var jugadoresp = _proyectoDbContext.Jugadores
                             .Where(x => x.Posicion == Posiciones.PIVOT)
@@ -172,6 +176,28 @@ namespace TP_NT.Controllers
         public IActionResult Perfil()
         {
             return View();
+        }
+
+        public IActionResult MostrarEquipos()
+        {
+            if(User.Identity.IsAuthenticated){
+                var claims = User.Claims.ToList();
+                Console.WriteLine(claims);
+
+            }
+            var equipos = _proyectoDbContext.Equipos
+                .Select(x => new SelectListItem
+                {
+                    Text = x.Nombre,
+                    Value = x.Id.ToString()
+                })
+                .ToList();
+            var EquipoVm = new RegistrarEquipo
+            {
+                Equipos = equipos
+            };
+
+            return View(EquipoVm);
         }
 
 

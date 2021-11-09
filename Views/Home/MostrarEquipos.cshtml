@@ -1,0 +1,11 @@
+@model TP_NT.Models.ViewModel.RegistrarEquipo;
+
+<form>
+    <div class="form-row">
+        <div class="form-group">
+            <label asp-for="Equipos" class="control-label"></label>
+            <select class="selectpicker" data-live-search="true" id="selectChange" asp-for="Equipos" asp-items="@Model.Equipos">
+            </select>
+            <span asp-validation-for="Equipos" class="text-danger"></span>
+        </div>
+</form>
