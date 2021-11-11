@@ -61,6 +61,8 @@ namespace TP_NT.Controllers
                         // Agregamos a la credencial el Rol
                         identidad.AddClaim(new Claim(ClaimTypes.Surname, user.Apellido.ToString()));
 
+                        identidad.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.IdUsuario.ToString()));
+
                         ClaimsPrincipal principal = new ClaimsPrincipal(identidad);
 
                         // Ejecutamos el Login
@@ -95,7 +97,8 @@ namespace TP_NT.Controllers
                     Apellido = altaUsuario.Apellido,
                     Edad = altaUsuario.Edad,
                     Email = altaUsuario.Email,
-                    Password = GetSHA256(altaUsuario.Password)
+                    Password = GetSHA256(altaUsuario.Password),
+                    Presupuesto = 3000
                 };
 
                 _ProyectoDbContext.Usuarios.Add(usuario);
