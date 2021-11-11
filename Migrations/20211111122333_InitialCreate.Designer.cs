@@ -10,7 +10,7 @@ using TP_NT.Database;
 namespace TP_NT.Migrations
 {
     [DbContext(typeof(ProyectoDbContext))]
-    [Migration("20211105050650_InitialCreate")]
+    [Migration("20211111122333_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,21 @@ namespace TP_NT.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("JugadorUsuario", b =>
+                {
+                    b.Property<int>("JugadoresIdJugador")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuariosIdUsuario")
+                        .HasColumnType("int");
+
+                    b.HasKey("JugadoresIdJugador", "UsuariosIdUsuario");
+
+                    b.HasIndex("UsuariosIdUsuario");
+
+                    b.ToTable("JugadorUsuario");
+                });
 
             modelBuilder.Entity("TP_NT.Models.Equipo", b =>
                 {
@@ -36,16 +51,29 @@ namespace TP_NT.Migrations
                     b.ToTable("Equipos");
                 });
 
-            modelBuilder.Entity("TP_NT.Models.EquipoUsuario", b =>
+            modelBuilder.Entity("TP_NT.Models.EquipoUserJug", b =>
                 {
-                    b.Property<int>("IdEquipoUsuario")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.HasKey("IdEquipoUsuario");
+                    b.Property<bool>("EsTitular")
+                        .HasColumnType("bit");
 
-                    b.ToTable("EquiposUsuario");
+                    b.Property<int>("IdJugador")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdJugador");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("EquipoUserJugs");
                 });
 
             modelBuilder.Entity("TP_NT.Models.Jugador", b =>
@@ -61,12 +89,6 @@ namespace TP_NT.Migrations
                     b.Property<int?>("EquipoId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EquipoUsuarioIdEquipoUsuario")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EquipoUsuarioIdEquipoUsuario1")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
@@ -80,10 +102,6 @@ namespace TP_NT.Migrations
 
                     b.HasIndex("EquipoId");
 
-                    b.HasIndex("EquipoUsuarioIdEquipoUsuario");
-
-                    b.HasIndex("EquipoUsuarioIdEquipoUsuario1");
-
                     b.ToTable("Jugadores");
                 });
 
@@ -93,12 +111,6 @@ namespace TP_NT.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("IdLocal")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IdVisitante")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LocalId")
                         .HasColumnType("int");
@@ -134,10 +146,10 @@ namespace TP_NT.Migrations
                     b.Property<int>("Faltas")
                         .HasColumnType("int");
 
-                    b.Property<int?>("JugadorIdJugador")
+                    b.Property<int>("IdJugador")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PartidoIdPartido")
+                    b.Property<int>("IdPartido")
                         .HasColumnType("int");
 
                     b.Property<int>("Puntos")
@@ -154,9 +166,9 @@ namespace TP_NT.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("JugadorIdJugador");
+                    b.HasIndex("IdJugador");
 
-                    b.HasIndex("PartidoIdPartido");
+                    b.HasIndex("IdPartido");
 
                     b.ToTable("StatsJugXPartido");
                 });
@@ -168,18 +180,10 @@ namespace TP_NT.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CreadorIdUsuario")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdCreador")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreadorIdUsuario");
 
                     b.ToTable("Torneos");
                 });
@@ -200,25 +204,67 @@ namespace TP_NT.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("EquipoUsuarioIdEquipoUsuario")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TorneoId")
-                        .HasColumnType("int");
+                    b.Property<double>("Presupuesto")
+                        .HasColumnType("float");
 
                     b.HasKey("IdUsuario");
 
-                    b.HasIndex("EquipoUsuarioIdEquipoUsuario");
-
-                    b.HasIndex("TorneoId");
-
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("TorneoUsuario", b =>
+                {
+                    b.Property<int>("TorneosId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuariosIdUsuario")
+                        .HasColumnType("int");
+
+                    b.HasKey("TorneosId", "UsuariosIdUsuario");
+
+                    b.HasIndex("UsuariosIdUsuario");
+
+                    b.ToTable("TorneoUsuario");
+                });
+
+            modelBuilder.Entity("JugadorUsuario", b =>
+                {
+                    b.HasOne("TP_NT.Models.Jugador", null)
+                        .WithMany()
+                        .HasForeignKey("JugadoresIdJugador")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TP_NT.Models.Usuario", null)
+                        .WithMany()
+                        .HasForeignKey("UsuariosIdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("TP_NT.Models.EquipoUserJug", b =>
+                {
+                    b.HasOne("TP_NT.Models.Jugador", "Jugador")
+                        .WithMany()
+                        .HasForeignKey("IdJugador")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TP_NT.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Jugador");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("TP_NT.Models.Jugador", b =>
@@ -226,14 +272,6 @@ namespace TP_NT.Migrations
                     b.HasOne("TP_NT.Models.Equipo", "Equipo")
                         .WithMany()
                         .HasForeignKey("EquipoId");
-
-                    b.HasOne("TP_NT.Models.EquipoUsuario", null)
-                        .WithMany("Suplente")
-                        .HasForeignKey("EquipoUsuarioIdEquipoUsuario");
-
-                    b.HasOne("TP_NT.Models.EquipoUsuario", null)
-                        .WithMany("Titular")
-                        .HasForeignKey("EquipoUsuarioIdEquipoUsuario1");
 
                     b.Navigation("Equipo");
                 });
@@ -257,49 +295,34 @@ namespace TP_NT.Migrations
                 {
                     b.HasOne("TP_NT.Models.Jugador", "Jugador")
                         .WithMany()
-                        .HasForeignKey("JugadorIdJugador");
+                        .HasForeignKey("IdJugador")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TP_NT.Models.Partido", "Partido")
                         .WithMany()
-                        .HasForeignKey("PartidoIdPartido");
+                        .HasForeignKey("IdPartido")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Jugador");
 
                     b.Navigation("Partido");
                 });
 
-            modelBuilder.Entity("TP_NT.Models.Torneo", b =>
+            modelBuilder.Entity("TorneoUsuario", b =>
                 {
-                    b.HasOne("TP_NT.Models.Usuario", "Creador")
-                        .WithMany()
-                        .HasForeignKey("CreadorIdUsuario");
-
-                    b.Navigation("Creador");
-                });
-
-            modelBuilder.Entity("TP_NT.Models.Usuario", b =>
-                {
-                    b.HasOne("TP_NT.Models.EquipoUsuario", "EquipoUsuario")
-                        .WithMany()
-                        .HasForeignKey("EquipoUsuarioIdEquipoUsuario");
-
                     b.HasOne("TP_NT.Models.Torneo", null)
-                        .WithMany("Usuarios")
-                        .HasForeignKey("TorneoId");
+                        .WithMany()
+                        .HasForeignKey("TorneosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("EquipoUsuario");
-                });
-
-            modelBuilder.Entity("TP_NT.Models.EquipoUsuario", b =>
-                {
-                    b.Navigation("Suplente");
-
-                    b.Navigation("Titular");
-                });
-
-            modelBuilder.Entity("TP_NT.Models.Torneo", b =>
-                {
-                    b.Navigation("Usuarios");
+                    b.HasOne("TP_NT.Models.Usuario", null)
+                        .WithMany()
+                        .HasForeignKey("UsuariosIdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

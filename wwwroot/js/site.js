@@ -3,28 +3,32 @@
 
 // Write your JavaScript code. 
 var usuarioPlata = 0;
-let seleccionados = []; 
+let dict = {};
 
-function ValidateJugSelection(objeto, contrato, nombre)  
+function ValidateJugSelection(nombre, elemento)  
 {  
-    if(seleccionados.indexOf(nombre) != -1) {
-        seleccionados.splice(seleccionados.indexOf(nombre), 1);
-        usuarioPlata = parseFloat(document.getElementById("plata").innerHTML) + parseFloat(contrato);
-        document.getElementById("plata").innerHTML = usuarioPlata;
+    contrato = elemento.selectedOptions[0].text.substr(-4);
+   if(nombre in dict) {
+        usuarioPlata = parseFloat(document.getElementById("plata").innerHTML) + parseFloat(dict[nombre]);
+        dict[nombre] = contrato;
+        usuarioPlata = usuarioPlata - parseFloat(contrato);
+        document.getElementById("plata").innerHTML = usuarioPlata; 
     }
-    else {
-        usuarioPlata = document.getElementById("plata").innerHTML - parseFloat(contrato);
-        if(usuarioPlata < 0) {
-            
-            alert("¡No podés seleccionarlo!");   
-            objeto.checked = 0;
-        }
-        else {
-            document.getElementById("plata").innerHTML = usuarioPlata;
-            seleccionados.push(nombre);
-            
-        }
+    else { 
+        usuarioPlata = parseFloat(document.getElementById("plata").innerHTML) - parseFloat(contrato);
+        document.getElementById("plata").innerHTML = usuarioPlata;
+        dict[nombre] = contrato;
     }
     
     
 }   
+
+function enviarFormulario() {
+    if (parseFloat(document.getElementById("plata").innerHTML) < 0) {
+        alert("No te alcanza el presupuesto");
+    }
+    else {
+        document.form1.submit();
+    }
+    
+}

@@ -7,8 +7,6 @@ namespace TP_NT.Database {
     {
         public ProyectoDbContext(DbContextOptions<ProyectoDbContext> options) : base(options){}
 
-        public DbSet<EquipoUsuario> EquiposUsuario {get; set; }
-
         public DbSet<Equipo> Equipos {get; set; }
 
         public DbSet<Jugador> Jugadores {get; set; }
@@ -20,6 +18,8 @@ namespace TP_NT.Database {
         public DbSet<Usuario> Usuarios {get; set; }
 
         public DbSet<Torneo> Torneos {get; set; }
+
+        public DbSet<EquipoUserJug> EquipoUserJugs { get; set;}
 }
 
 }

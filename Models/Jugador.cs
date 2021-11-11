@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TP_NT.Models
@@ -15,8 +16,9 @@ namespace TP_NT.Models
         public string Apellido { get; set; }
         public Equipo Equipo { get; set; }
         public Posiciones Posicion { get; set; }
-
         public double ValorContrato { get; set; }
+
+        public ICollection<Usuario> Usuarios {get; set;}
 
     }
 }

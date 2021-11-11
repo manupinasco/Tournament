@@ -1,15 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using TP_NT.Database;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TP_NT.Database;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace TP_NT
 {
@@ -19,18 +16,25 @@ namespace TP_NT
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
+				opciones =>
+				{
+					opciones.LoginPath = "/Login/Index";
+					opciones.AccessDeniedPath = "/Login/AccesoDenegado";
+					opciones.LogoutPath = "/Login/Salir";
+				}
+			);
+
             services.AddControllersWithViews();
             services.AddDbContext<ProyectoDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -49,6 +53,9 @@ namespace TP_NT
 
             app.UseRouting();
 
+            //UseAuthentication tiene que ir antes que UseAuthorization
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -57,6 +64,9 @@ namespace TP_NT
                     name: "default",
                     pattern: "{controller=Login}/{action=Index}/{id?}");
             });
+
+            // UseCookiePolicy al final de la configuracion
+			app.UseCookiePolicy();
         }
     }
 }

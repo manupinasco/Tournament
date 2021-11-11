@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TP_NT.Models
 {
@@ -11,11 +12,10 @@ namespace TP_NT.Models
 
         public string Nombre { get; set; }
 
+
         public ICollection<Usuario> Usuarios { get; set; }
 
-        public Usuario Creador { get; set; }
-
-        public int IdCreador { get; set; }
+       
 
     }
 }

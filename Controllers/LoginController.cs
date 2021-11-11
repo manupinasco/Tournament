@@ -1,8 +1,16 @@
+using System;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.Text;
 using TP_NT.Database;
 using TP_NT.Models;
 using TP_NT.Models.ViewModel;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography;
+
 
 namespace TP_NT.Controllers
 {
@@ -14,24 +22,62 @@ namespace TP_NT.Controllers
             this._ProyectoDbContext = ProyectoDbContext;
         }
 
-        [HttpGet]
-        public IActionResult Index()
+        public static string GetSHA256(string str)
         {
+                    SHA256 sha256 = SHA256Managed.Create();
+                    ASCIIEncoding encoding = new ASCIIEncoding();
+                    byte[] stream = null;
+                    StringBuilder sb = new StringBuilder();
+                    stream = sha256.ComputeHash(encoding.GetBytes(str));
+                    for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+                    return sb.ToString();
+        }
+
+        [HttpGet]
+        public IActionResult Index(string returnUrl) {
+            TempData["UrlIngreso"] = returnUrl;
             return View();
         }
 
+
         [HttpPost]
-        public IActionResult Index(LoginUsuario usuario)
-        {   
-            if (ModelState.IsValid){
+        public IActionResult Index(LoginUsuario credenciales)
+        {
+            if (ModelState.IsValid)
+            {
+                var username = credenciales.Email;
+                var contraseña = GetSHA256(credenciales.Password);
+                var user = _ProyectoDbContext.Usuarios.FirstOrDefault(u => u.Email == username && u.Password == contraseña);
+                if (user != null)
                 {
-                    var usuarioBuscado = _ProyectoDbContext.Usuarios
-                    .Where(x => x.Email.Equals(usuario.Email) && x.Password.Equals(usuario.Password)).FirstOrDefault();
-                    return RedirectToAction("index", "Home");
+
+                        // Creamos los Claims (credencial de acceso con informacion del usuario)
+                        ClaimsIdentity identidad = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+
+                        // Agregamos a la credencial el nombre de usuario
+                        identidad.AddClaim(new Claim(ClaimTypes.Name, username));
+                        // Agregamos a la credencial el nombre del estudiante/administrador
+                        identidad.AddClaim(new Claim(ClaimTypes.GivenName, user.Nombre));
+                        // Agregamos a la credencial el Rol
+                        identidad.AddClaim(new Claim(ClaimTypes.Surname, user.Apellido.ToString()));
+
+                        identidad.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.IdUsuario.ToString()));
+
+                        ClaimsPrincipal principal = new ClaimsPrincipal(identidad);
+
+                        // Ejecutamos el Login
+                        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.ErrorEnLogin = "Credenciales invalidas.";
                 }
             }
             return View();
         }
+            
 
         [HttpGet]
         public IActionResult Register()
@@ -44,14 +90,15 @@ namespace TP_NT.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 var usuario = new Usuario
                 {
                     Nombre = altaUsuario.Nombre,
                     Apellido = altaUsuario.Apellido,
                     Edad = altaUsuario.Edad,
                     Email = altaUsuario.Email,
-                    Password = altaUsuario.Password,
-                    EquipoUsuario = null
+                    Password = GetSHA256(altaUsuario.Password),
+                    Presupuesto = 3000
                 };
 
                 _ProyectoDbContext.Usuarios.Add(usuario);
@@ -62,6 +109,21 @@ namespace TP_NT.Controllers
             return View();
         }
         
+        [Authorize]
+        [HttpGet]
+        public IActionResult Salir()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Index", "Login");
+        }
+
+        [Authorize]
+        public IActionResult AccesoDenegado()
+        {
+            return View();
+        }
+
 
     }
 }

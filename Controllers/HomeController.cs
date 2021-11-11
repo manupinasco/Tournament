@@ -11,6 +11,8 @@ using TP_NT.Database;
 using Microsoft.EntityFrameworkCore;
 using TP_NT.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
+using System.Security.Claims;
 
 namespace TP_NT.Controllers
 {
@@ -27,22 +29,32 @@ namespace TP_NT.Controllers
 
         public IActionResult Index()
         {
-           var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 3).FirstOrDefault();
-           if(usuario.EquipoUsuario != null) {
-                var equipo = usuario.EquipoUsuario;
-                var titulares = equipo.Titular.ToList();
-                ViewBag.tit = titulares;
-                var suplentes = equipo.Suplente.ToList();
-                ViewBag.sup = suplentes;
-           }
-           else {
-               ViewBag.tit = null;
-               ViewBag.sup = null;
-           }
-           
+           if (User.Identity.IsAuthenticated)
+            {
+                var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
+                List<Jugador> misTitulares = new List<Jugador>();
+                List<Jugador> misSuplentes = new List<Jugador>();
+                List<Jugador> jugadores = _proyectoDbContext.Jugadores.ToList();
+                List<EquipoUserJug> equiposJugsTit;
+                List<EquipoUserJug> equiposJugsSup;
+               equiposJugsTit = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == usuario.IdUsuario).Where(x => x.EsTitular).ToList();
+                for(int i = 0; i < equiposJugsTit.Count(); i++) {
+                        misTitulares.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == equiposJugsTit[i].IdJugador).FirstOrDefault());
+                };
+                equiposJugsSup = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == usuario.IdUsuario).Where(x => !x.EsTitular).ToList();
+                for(int i = 0; i < equiposJugsTit.Count(); i++) {
+                        misSuplentes.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == equiposJugsTit[i].IdJugador).FirstOrDefault());
+                };
+
+              ViewBag.tit = misTitulares;
+              ViewBag.sup = misSuplentes;
+              ViewBag.jugadores = jugadores;
 
 
-            return View();
+
+                return View();
+            }
+            return RedirectToAction("Index", "Login");
         }
 
         [HttpGet]
@@ -77,44 +89,44 @@ namespace TP_NT.Controllers
             var jugadoresb = _proyectoDbContext.Jugadores
                             .Where(x => x.Posicion == Posiciones.BASE)
                             .Select (x => new SelectListItem {
-                                Text = x.Nombre,
-                                Value = x.ValorContrato.ToString()
+                                Text = x.Nombre + " " + x.ValorContrato.ToString(),
+                                Value = x.IdJugador.ToString()
                             })
-                            .ToList();;
+                            .ToList();
             
             var jugadorese = _proyectoDbContext.Jugadores
                             .Where(x => x.Posicion == Posiciones.ESCOLTA)
                             .Select (x => new SelectListItem {
-                                Text = x.Nombre,
-                                Value = x.ValorContrato.ToString()
+                                Text = x.Nombre + " " + x.ValorContrato.ToString(),
+                                Value = x.IdJugador.ToString()
                             })
-                            .ToList();;
+                            .ToList();
             
             var jugadoresa = _proyectoDbContext.Jugadores
                             .Where(x => x.Posicion == Posiciones.ALERO)
                             .Select (x => new SelectListItem {
-                                Text = x.Nombre,
-                                Value = x.ValorContrato.ToString()
+                                Text = x.Nombre + " " + x.ValorContrato.ToString(),
+                                Value = x.IdJugador.ToString()
                             })
-                            .ToList();;
+                            .ToList();
             var jugadoresap = _proyectoDbContext.Jugadores
                             .Where(x => x.Posicion == Posiciones.ALA_PIVOT)
                             .Select (x => new SelectListItem {
-                                Text = x.Nombre,
-                                Value = x.ValorContrato.ToString()
+                                Text = x.Nombre + " " + x.ValorContrato.ToString(),
+                                Value = x.IdJugador.ToString()
                             })
-                            .ToList();;
+                            .ToList();
             
             var jugadoresp = _proyectoDbContext.Jugadores
                             .Where(x => x.Posicion == Posiciones.PIVOT)
                             .Select (x => new SelectListItem {
-                                Text = x.Nombre,
+                                Text = x.Nombre + " " + x.ValorContrato.ToString(),
                                 Value = x.IdJugador.ToString()
                             })
-                            .ToList();;
+                            .ToList();
             
-            var datos = new DatosFormEquipo 
-            {
+            var datos = new DatosFormEquipo {
+                Presupuesto = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault().Presupuesto,
                 JugadoresBase = jugadoresb,
                 JugadoresEscolta = jugadorese,
                 JugadoresAlero = jugadoresa,
@@ -130,32 +142,70 @@ namespace TP_NT.Controllers
         public IActionResult CrearEquipo(DatosFormEquipo equipoUsuario)
         {
             if(ModelState.IsValid) {
-                _proyectoDbContext.Jugadores.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.BaseTitular).FirstOrDefault());
-                var equipo = new EquipoUsuario{
-                    Titular = new List<Jugador> {
-                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.BaseTitular).FirstOrDefault(),
-                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.EscoltaTitular).FirstOrDefault(),
-                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AleroTitular).FirstOrDefault(),
-                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AlaPivotTitular).FirstOrDefault(),
-                       _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.PivotTitular).FirstOrDefault()
+
+                var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
+
+                usuario.Presupuesto = equipoUsuario.Presupuesto;
+
+                var equiposUsuariosJugadores = new List<EquipoUserJug> {
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.BaseTitular).FirstOrDefault(),
+                        EsTitular = true
                     },
-                    Suplente = new List<Jugador> {
-                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.BaseSuplente).FirstOrDefault(),
-                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.EscoltaSuplente).FirstOrDefault(),
-                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AleroSuplente).FirstOrDefault(),
-                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AlaPivotSuplente).FirstOrDefault(),
-                        _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.PivotSuplente).FirstOrDefault()
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.EscoltaTitular).FirstOrDefault(),
+                        EsTitular = true
+                    },
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AleroTitular).FirstOrDefault(),
+                        EsTitular = true
+                    },
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AlaPivotTitular).FirstOrDefault(),
+                        EsTitular = true
+                    },
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.PivotTitular).FirstOrDefault(),
+                        EsTitular = true
+                    },
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.BaseSuplente).FirstOrDefault(),
+                        EsTitular = false
+                    },
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.EscoltaSuplente).FirstOrDefault(),
+                        EsTitular = false
+                    },
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AleroSuplente).FirstOrDefault(),
+                        EsTitular = false
+                    },
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AlaPivotSuplente).FirstOrDefault(),
+                        EsTitular = false
+                    },
+                    new EquipoUserJug {
+                        Usuario = usuario,
+                        Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.PivotSuplente).FirstOrDefault(),
+                        EsTitular = false
                     }
                 };
+                        
+                _proyectoDbContext.EquipoUserJugs.AddRange(equiposUsuariosJugadores);
 
-                _proyectoDbContext.EquiposUsuario.Add(equipo);
-                var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == 3).FirstOrDefault();
-                var nuevoUsuario = usuario;
-                nuevoUsuario.EquipoUsuario = equipo;
-                _proyectoDbContext.Entry(usuario).CurrentValues.SetValues(nuevoUsuario);
                 _proyectoDbContext.SaveChanges();
-                return View("Views/Home/Index.cshtml");
-            }
+                return RedirectToAction("Index", "Home");
+            };
+            
             return View();
         } 
 

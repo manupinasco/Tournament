@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TP_NT.Models
 {
@@ -7,7 +8,13 @@ namespace TP_NT.Models
     {
         [Key]
         public int Id {get; set;}
+
+        [ForeignKey(nameof(Jugador))]
+        public int IdJugador {get; set; }
         public Jugador Jugador { get; set; }
+        
+        [ForeignKey(nameof(Partido))]
+        public int IdPartido {get; set;}
         public Partido Partido { get; set; }
         public int Puntos { get; set; }
         public int Asistencias { get; set; }

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TP_NT.Models
 {
@@ -11,7 +13,12 @@ namespace TP_NT.Models
         public int Edad{ get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public EquipoUsuario EquipoUsuario { get; set; }
+
+        public double Presupuesto { get; set; }
+
+        public ICollection<Jugador> Jugadores {get; set;}
+        
+        public ICollection<Torneo> Torneos { get; set; }
 
     }
 }

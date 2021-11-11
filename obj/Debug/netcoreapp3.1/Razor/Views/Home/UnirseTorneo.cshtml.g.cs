@@ -26,8 +26,15 @@ using TP_NT.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
+using System.Security.Claims;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"23490e3f61eb0d9439e73f952f239b9ac6c20f04", @"/Views/Home/UnirseTorneo.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0016ef1db381ceaad16a3aea495ab2b3c15f707b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"15b29fdc77cafb11a8a668d49ec0b8c0998b75e9", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_UnirseTorneo : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<TP_NT.Models.ViewModel.Ranking>
     {
         #pragma warning disable 1998
