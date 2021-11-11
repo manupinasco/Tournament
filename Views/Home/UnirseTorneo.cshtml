@@ -4,3 +4,47 @@
     ViewData["Title"] = "Unirse Torneo";
 } 
 
+@{
+    ViewData["Title"] = "Unirse a un torneo";
+}
+
+<div class="container">
+    <div class="row">
+        <form>
+            <div class="row">
+                <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Nombre del torneo">
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Nombre del dueño">
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Apellido del dueño">           
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-primary">Buscar torneo</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Torneo</th>
+                    <th scope="col">Dueño</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row"></th>
+                    <td>Torneo</td>
+                    <td>Amilcar</td>
+                    <td><button type="button" class="btn btn-outline-primary">Postularse</button></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</div>

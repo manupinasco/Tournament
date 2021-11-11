@@ -221,7 +221,8 @@ namespace TP_NT.Controllers
 
         public IActionResult Perfil()
         {
-            return View();
+            var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
+            return View(usuario);
         }
 
 
