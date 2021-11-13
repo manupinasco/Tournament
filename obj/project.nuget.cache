@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zn9lTLHcVGQNOXc6qJ0qfD8jGIXw3SeCJZk+Ge3FjDYliStGja9MecWxYvYKiWK0BqDAwjU/jkziy5stlSw4EA==",
+  "dgSpecHash": "AGQmb62kT7McuRq7lMAi7s9Wsd+JkqPNP91+amPFnyH20aZ2syHJkRYy35fr3QfuCvB9XaESNxsGXYhX7/hCfg==",
   "success": true,
-  "projectFilePath": "C:\\ORT\\SEGUNDO CUATRIMESTRE\\PP I Programación en Nuevas\\TP_FINAL_NT\\TP_NT\\TP_NT.csproj",
+  "projectFilePath": "C:\\Users\\fefe\\Desktop\\TP_NT\\TP_NT.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fefe\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\fefe\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
