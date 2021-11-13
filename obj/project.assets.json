@@ -5767,11 +5767,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ORT\\SEGUNDO CUATRIMESTRE\\PP I Programación en Nuevas\\TP_FINAL_NT\\TP_NT\\TP_NT.csproj",
+      "projectUniqueName": "C:\\Users\\fefe\\Desktop\\TP_NT\\TP_NT.csproj",
       "projectName": "TP_NT",
-      "projectPath": "C:\\ORT\\SEGUNDO CUATRIMESTRE\\PP I Programación en Nuevas\\TP_FINAL_NT\\TP_NT\\TP_NT.csproj",
+      "projectPath": "C:\\Users\\fefe\\Desktop\\TP_NT\\TP_NT.csproj",
       "packagesPath": "C:\\Users\\fefe\\.nuget\\packages\\",
-      "outputPath": "C:\\ORT\\SEGUNDO CUATRIMESTRE\\PP I Programación en Nuevas\\TP_FINAL_NT\\TP_NT\\obj\\",
+      "outputPath": "C:\\Users\\fefe\\Desktop\\TP_NT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fefe\\AppData\\Roaming\\NuGet\\NuGet.Config"

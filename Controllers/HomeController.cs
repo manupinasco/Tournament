@@ -141,8 +141,6 @@ namespace TP_NT.Controllers
         [HttpPost]
         public IActionResult CrearEquipo(DatosFormEquipo equipoUsuario)
         {
-            if(ModelState.IsValid) {
-
                 var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
 
                 usuario.Presupuesto = equipoUsuario.Presupuesto;
@@ -204,9 +202,7 @@ namespace TP_NT.Controllers
 
                 _proyectoDbContext.SaveChanges();
                 return RedirectToAction("Index", "Home");
-            };
-            
-            return View();
+
         } 
 
         public IActionResult UnirseTorneo()

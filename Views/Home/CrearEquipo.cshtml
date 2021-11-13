@@ -4,99 +4,68 @@
     ViewData["Title"] = "Crear Equipo";
 }
 
-<div class="row">
-        <div class="col-md-4">
-            <form asp-action="CrearEquipo" method="POST" name="form1">
-                
-                <h1>Tu presupuesto:</h1>
-                <h1 id="plata" asp-for="Presupuesto">@Model.Presupuesto</h1>
-
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                
-                <div class="form-group">
-                    <label asp-for="JugadoresBase" class="control-label"></label>
-                    <select data-live-search="true" id="seleccion" class="selectpicker" asp-for ="BaseTitular" asp-items="@Model.JugadoresBase" onchange="if (this.selectedIndex) return ValidateJugSelection(0, this)"> 
-                    <option disabled selected> Elegir</option>
+<div class="row"    >
+    <div class="card animate__bounceIn">
+     <form asp-action="CrearEquipo" method="POST" id="form1">
+  <h4 class="card-header">TU PRESUPUESTO $<span id="plata" asp-for="Presupuesto">@Model.Presupuesto</span></h4>
+  <div class="card-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">TITULAR</span>
+                    <select data-live-search="true" id="seleccion" class="selectpicker" asp-for="BaseTitular"
+                        asp-items="@Model.JugadoresBase" onchange="if (this.selectedIndex) return ValidateJugSelection(0, this)">
+                        <option value="" disabled selected>BASE</option>
                     </select>
-                    <span asp-validation-for="BaseTitular" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="JugadoresEscolta" class="control-label"></label>
-                    <select data-live-search="true" id="seleccion1" class="selectpicker" asp-for ="EscoltaTitular" asp-items="@Model.JugadoresEscolta" onchange="if (this.selectedIndex) return ValidateJugSelection(1, this)" > 
-                    <option disabled selected> Elegir</option>
-                    </select>
-                    <span asp-validation-for="EscoltaTitular" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="JugadoresAlero" class="control-label"></label>
-                    <select data-live-search="true" id="seleccion2" class="selectpicker" asp-for ="AleroTitular" asp-items="@Model.JugadoresAlero" onchange="if (this.selectedIndex) return ValidateJugSelection(2, this)" > 
-                     <option disabled selected> Elegir</option>
-                    </select>
-                    <span asp-validation-for="AleroTitular" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="JugadoresAlaPivot" class="control-label"></label>
-                    <select data-live-search="true" id="seleccion3" class="selectpicker" asp-for ="AlaPivotTitular" asp-items="@Model.JugadoresAlaPivot" onchange="if (this.selectedIndex) return ValidateJugSelection(3, this)" > 
-                     <option disabled selected> Elegir</option>
-                    </select>
-                    <span asp-validation-for="AlaPivotTitular" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="JugadoresPivot" class="control-label"></label>
-                    <select data-live-search="true" id="seleccion4" class="selectpicker" asp-for ="PivotTitular" asp-items="@Model.JugadoresPivot" onchange="if (this.selectedIndex) return ValidateJugSelection(4, this)" > 
-                     <option disabled selected> Elegir</option>
-                    </select>
-                    <span asp-validation-for="PivotTitular" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="JugadoresBase" class="control-label"></label>
+                    <span class="input-group-text">SUPLENTE</span>
                     <select data-live-search="true" id="seleccion5" class="selectpicker" asp-for ="BaseSuplente" asp-items="@Model.JugadoresBase" onchange="if (this.selectedIndex) return ValidateJugSelection(5, this)" > 
-                     <option disabled selected> Elegir</option>
+                     <option value="" disabled selected>BASE</option>
                     </select>
-                    <span asp-validation-for="BaseSuplente" class="text-danger"></span>
                 </div>
-
-                <div class="form-group">
-                    <label asp-for="JugadoresEscolta" class="control-label"></label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">TITULAR</span>
+                    <select data-live-search="true" id="seleccion1" class="selectpicker" asp-for ="EscoltaTitular" asp-items="@Model.JugadoresEscolta" onchange="if (this.selectedIndex) return ValidateJugSelection(1, this)" > 
+                    <option value="" disabled selected>ESCOLTA</option>
+                    </select>
+                    <span class="input-group-text">SUPLENTE</span>
                     <select data-live-search="true" id="seleccion6" class="selectpicker" asp-for ="EscoltaSuplente" asp-items="@Model.JugadoresEscolta" onchange="if (this.selectedIndex) return ValidateJugSelection(6, this)" > 
-                     <option disabled selected> Elegir</option>
+                     <option value="" disabled selected>ESCOLTA</option>
                     </select>
-                    <span asp-validation-for="EscoltaSuplente" class="text-danger"></span>
                 </div>
-
-                <div class="form-group">
-                    <label asp-for="JugadoresAlero" class="control-label"></label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">TITULAR</span>
+                    <select data-live-search="true" id="seleccion2" class="selectpicker" asp-for ="AleroTitular" asp-items="@Model.JugadoresAlero" onchange="if (this.selectedIndex) return ValidateJugSelection(2, this)" > 
+                     <option value="" disabled selected> ALERO</option>
+                    </select>
+                    <span class="input-group-text">SUPLENTE</span>
                     <select data-live-search="true" id="seleccion7" class="selectpicker" asp-for ="AleroSuplente" asp-items="@Model.JugadoresAlero" onchange="if (this.selectedIndex) return ValidateJugSelection(7, this)" > 
-                     <option disabled selected> Elegir</option>
+                     <option value="" disabled selected>ALERO</option>
                     </select>
-                    <span asp-validation-for="AleroSuplente" class="text-danger"></span>
                 </div>
-
-                <div class="form-group">
-                    <label asp-for="JugadoresAlaPivot" class="control-label"></label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">TITULAR</span>
+                    <select data-live-search="true" id="seleccion3" class="selectpicker" asp-for ="AlaPivotTitular" asp-items="@Model.JugadoresAlaPivot" onchange="if (this.selectedIndex) return ValidateJugSelection(3, this)" > 
+                     <option value="" disabled selected>ALA PIVOT</option>
+                    </select>
+                    <span class="input-group-text">SUPLENTE</span>
                     <select data-live-search="true" id="seleccion8" class="selectpicker" asp-for ="AlaPivotSuplente" asp-items="@Model.JugadoresAlaPivot" onchange="if (this.selectedIndex) return ValidateJugSelection(8, this)" > 
-                     <option disabled selected> Elegir</option>
+                     <option value="" disabled selected> ALA PIVOT</option>
                     </select>
-                    <span asp-validation-for="AlaPivotSuplente" class="text-danger"></span>
                 </div>
-
-                <div class="form-group">
-                    <label asp-for="JugadoresPivot" class="control-label"></label>
-                    <select data-live-search="true" id="seleccion9" class="selectpicker" asp-for ="PivotSuplente" asp-items="@Model.JugadoresPivot" onchange="if (this.selectedIndex) return ValidateJugSelection(9, this)" > 
-                     <option disabled selected> Elegir</option>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">TITULAR</span>
+                    <select data-live-search="true" id="seleccion4" class="selectpicker" asp-for ="PivotTitular" asp-items="@Model.JugadoresPivot" onchange="if (this.selectedIndex) return ValidateJugSelection(4, this)" > 
+                     <option value="" disabled selected>PIVOT</option>
                     </select>
-                    <span asp-validation-for="PivotSuplente" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <a href="javascript: enviarFormulario()">Guardar equipo</a>
-                </div>
-                
+                    <span class="input-group-text">SUPLENTE</span>
+                    <select value="" data-live-search="true" id="seleccion9" class="selectpicker" asp-for ="PivotSuplente" asp-items="@Model.JugadoresPivot" onchange="if (this.selectedIndex) return ValidateJugSelection(9, this)" > 
+                     <option disabled selected>PIVOT</option>
+                    </select>
+                </div>                
+                    <div class="d-grid gap-2 mt4">
+                    <button class="btn btn-large btn-block btn-success btn-lg" type="button" id="guardarEquipo">Crear Equipo</button>
+                    </div>
             </form>
-        </div>
+        </div>  
+  </div>
+</div>
+
 </div>
