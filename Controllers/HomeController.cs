@@ -20,7 +20,7 @@ namespace TP_NT.Controllers
     {
         private ProyectoDbContext _proyectoDbContext;
 
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
         public HomeController(ProyectoDbContext ProyectoDbContext)
         {
@@ -141,8 +141,6 @@ namespace TP_NT.Controllers
         [HttpPost]
         public IActionResult CrearEquipo(DatosFormEquipo equipoUsuario)
         {
-            if(ModelState.IsValid) {
-
                 var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
 
                 usuario.Presupuesto = equipoUsuario.Presupuesto;
@@ -204,9 +202,7 @@ namespace TP_NT.Controllers
 
                 _proyectoDbContext.SaveChanges();
                 return RedirectToAction("Index", "Home");
-            };
-            
-            return View();
+
         } 
 
         public IActionResult UnirseTorneo()
@@ -225,6 +221,37 @@ namespace TP_NT.Controllers
             return View(usuario);
         }
 
+        public IActionResult MostrarEquipos()
+        {
+            if(User.Identity.IsAuthenticated){
+                var claims = User.Claims.ToList();
+                Console.WriteLine(claims);
+
+            }
+            var equipos = _proyectoDbContext.Equipos
+                .Select(x => new SelectListItem
+                {
+                    Text = x.Nombre,
+                    Value = x.Id.ToString()
+                })
+                .ToList();
+            var EquipoVm = new RegistrarEquipo
+            {
+                Equipos = equipos
+            };
+
+            return View(EquipoVm);
+        }
+
+        public IActionResult AdministrarTorneo()
+        {
+            return View();
+        }
+
+        public IActionResult CrearTorneo()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

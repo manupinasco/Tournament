@@ -64,7 +64,7 @@ namespace TP_NT
                     name: "default",
                     pattern: "{controller=Login}/{action=Index}/{id?}");
             });
-
+            
             // UseCookiePolicy al final de la configuracion
 			app.UseCookiePolicy();
         }

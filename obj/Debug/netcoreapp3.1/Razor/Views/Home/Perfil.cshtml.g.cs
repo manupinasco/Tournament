@@ -13,21 +13,21 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\fefe\Desktop\TP_NT\Views\_ViewImports.cshtml"
 using TP_NT;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\fefe\Desktop\TP_NT\Views\_ViewImports.cshtml"
 using TP_NT.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
+#line 4 "C:\Users\fefe\Desktop\TP_NT\Views\_ViewImports.cshtml"
 using System.Security.Claims;
 
 #line default
@@ -42,7 +42,7 @@ using System.Security.Claims;
         {
             WriteLiteral("\r\n");
 #nullable restore
-#line 3 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Perfil.cshtml"
+#line 3 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Perfil.cshtml"
   
     ViewData["Title"] = "Perfil";
 

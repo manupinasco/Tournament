@@ -292,3 +292,177 @@ C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Ranking.cshtml.g.cs
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Perfil.cshtml.g.cs
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\CrearEquipo.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.csprojAssemblyReference.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.AssemblyInfoInputs.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.AssemblyInfo.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.csproj.CoreCompileInputs.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.MvcApplicationPartsAssemblyInfo.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorAssemblyInfo.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorAssemblyInfo.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.TagHelpers.input.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.TagHelpers.output.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorCoreGenerate.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\CrearEquipo.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\MisTorneos.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Perfil.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Ranking.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\UnirseTorneo.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Login\Register.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorTargetAssemblyInfo.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorTargetAssemblyInfo.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.pdb
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\MostrarEquipos.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\appsettings.json
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.exe
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.deps.json
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.runtimeconfig.json
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.runtimeconfig.dev.json
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.pdb
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.Views.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.Views.pdb
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.Views.pdb
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.csproj.CopyComplete
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\staticwebassets\TP_NT.StaticWebAssets.Manifest.cache
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\staticwebassets\TP_NT.StaticWebAssets.xml
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.genruntimeconfig.cache
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.exe
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.deps.json
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.runtimeconfig.json
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.runtimeconfig.dev.json
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.pdb
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.Views.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\TP_NT.Views.pdb
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\fefe\Desktop\TP_NT\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.csprojAssemblyReference.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.AssemblyInfoInputs.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.AssemblyInfo.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.csproj.CoreCompileInputs.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorAssemblyInfo.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorAssemblyInfo.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.TagHelpers.input.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.TagHelpers.output.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorCoreGenerate.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\CrearEquipo.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\MisTorneos.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\MostrarEquipos.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Perfil.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\Ranking.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\UnirseTorneo.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Login\Register.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorTargetAssemblyInfo.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.RazorTargetAssemblyInfo.cs
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.Views.pdb
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.csproj.CopyComplete
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\staticwebassets\TP_NT.StaticWebAssets.Manifest.cache
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\staticwebassets\TP_NT.StaticWebAssets.xml
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.dll
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.pdb
+C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.genruntimeconfig.cache

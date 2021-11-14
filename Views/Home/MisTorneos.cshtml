@@ -1,66 +1,43 @@
 @model TP_NT.Models.Torneo
 
 @{
-    ViewData["Title"] = "Mis Torneos";
+    ViewData["Title"] = "Mis torneos";
 }
 
-
-    <div class="container mt-6"> 
-        <div class="row">
-            <div class="row-md-6">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Torneo 1</h5>
-                        <p class="card-text">Nombre: <br> Creador: </p>
-                        <input id="mostrar-modal" name="modal" type="radio" />
-                        <label for="mostrar-modal">Ver datos</label>
-                        <div id="modal">
-                            <p>
-                                Datos Torneo
-                            </p>
-                        </div>
-                        <input id="cerrar-modal" name="modal" type="radio" /> 
-                        <label for="cerrar-modal"> X </label>
-                    </div>
-                </div>
-                
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Torneo</th>
+                    <th scope="col"></th>
+                    <th scope="col">Ver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row"></th>
+                    <td>Torneo de mi amigo</td>
+                    <td></td>
+                    <td><button type="button" class="btn btn-outline-primary">Ver torneo</button></td>
+                    </tr>
+                    <tr>
+                    <th scope="row"></th>
+                    <td>Torneo mio</td>
+                    <td><button type="button" class="btn btn-outline-primary">Administrar</button></td>
+                    <td><button type="button" class="btn btn-outline-primary">Ver torneo</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="col-sm-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Torneo 1</h5>
-                <p class="card-text">Nombre: <br> Creador: </p>
-                <input id="mostrar-modal" name="modal" type="radio" /> 
-                <label for="mostrar-modal"> Crear nuevo torneo </label>
- 
-                <div id="modal">
-                    <p>
-                        <form asp-controller="CrearTorneo" asp-action="CrearTorneo" id="form" method="POST">
-                            <div class="form-floating mb-3">
-                                <label for="floatingInput">Crear</label>
-                                <input type="text" class="form-control" id="floatingInput" placeholder="miTorneo">
-                            </div>
-        
-                            <div class="container-fluid h-100"> 
-    		                    <div class="row w-100 align-items-center">
-    			                    <div class="col text-center">
-                                        <button class="btn btn-primary" type="submit">Crear</button>
-                                    </div>
-                                </div>
-                            </div>
-    
-                        </form> 
-                    </p>
-
-                    <input id="cerrar-modal" name="modal" type="radio" /> 
-                    <label for="cerrar-modal"> X </label>
-            </div>
-
+        <div class="col-4">
+            <button type="button" class="btn btn-primary btn-lg">Crear</button>
+            <button type="button" class="btn btn-primary btn-lg">Inscribirse</button>
         </div>
-    </div> 
     </div>
-    
-
+</div>
 
     
      

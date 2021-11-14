@@ -19,16 +19,30 @@ function ValidateJugSelection(nombre, elemento)
         document.getElementById("plata").innerHTML = usuarioPlata;
         dict[nombre] = contrato;
     }
-    
-    
 }   
 
 function enviarFormulario() {
-    if (parseFloat(document.getElementById("plata").innerHTML) < 0) {
-        alert("No te alcanza el presupuesto");
+    const SIN_SALDO = 0;
+    if (parseFloat(document.getElementById("plata").innerHTML) < SIN_SALDO) {
+        toastr.error("No tiene presupuesto!", "Aviso!");
+        return false;
     }
     else {
-        document.form1.submit();
+        document.querySelector("#form1").submit();
     }
-    
 }
+
+function validarCampos(){
+        var total, i;
+        total = document.querySelectorAll(".selectpicker");
+        for (i = 0; i < total.length; i++) {
+          if( total[i].value == "") {
+            toastr.error("Debe ingresar todos los jugadores!", "Aviso!");
+            return false;
+          }
+        }
+        enviarFormulario();
+    }
+
+let guardarEquipo = document.querySelector("#guardarEquipo");
+guardarEquipo.addEventListener("click",validarCampos);

@@ -13,21 +13,21 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\fefe\Desktop\TP_NT\Views\_ViewImports.cshtml"
 using TP_NT;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\fefe\Desktop\TP_NT\Views\_ViewImports.cshtml"
 using TP_NT.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
+#line 4 "C:\Users\fefe\Desktop\TP_NT\Views\_ViewImports.cshtml"
 using System.Security.Claims;
 
 #line default
@@ -65,7 +65,7 @@ using System.Security.Claims;
         {
             WriteLiteral("\r\n");
 #nullable restore
-#line 3 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Index.cshtml"
+#line 3 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Index.cshtml"
   
     ViewData["Title"] = "Home Page";
 
@@ -459,7 +459,7 @@ using System.Security.Claims;
       <tbody>
 ");
 #nullable restore
-#line 80 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Index.cshtml"
+#line 78 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Index.cshtml"
         int pos = 1;
 
 #line default
@@ -467,7 +467,7 @@ using System.Security.Claims;
 #nullable disable
             WriteLiteral("\r\n");
 #nullable restore
-#line 82 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Index.cshtml"
+#line 80 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Index.cshtml"
          foreach (var item in ViewBag.jugadores)
             {
 
@@ -476,7 +476,7 @@ using System.Security.Claims;
 #nullable disable
             WriteLiteral("              <tr>\r\n                <th scope=\"row\">");
 #nullable restore
-#line 85 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Index.cshtml"
+#line 83 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Index.cshtml"
                            Write(pos);
 
 #line default
@@ -484,7 +484,7 @@ using System.Security.Claims;
 #nullable disable
             WriteLiteral("</th> \r\n                <td>");
 #nullable restore
-#line 86 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Index.cshtml"
+#line 84 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Index.cshtml"
                Write(item.Nombre);
 
 #line default
@@ -492,7 +492,7 @@ using System.Security.Claims;
 #nullable disable
             WriteLiteral(" ");
 #nullable restore
-#line 86 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Index.cshtml"
+#line 84 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Index.cshtml"
                             Write(item.Apellido);
 
 #line default
@@ -500,7 +500,7 @@ using System.Security.Claims;
 #nullable disable
             WriteLiteral("</td>\r\n               <!-- <td><span class=\"badge badge-primary\">item.Equipo.Nombre</span></td> -->\r\n                <td><span class=\"badge badge-primary\">");
 #nullable restore
-#line 88 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Index.cshtml"
+#line 86 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Index.cshtml"
                                                  Write(item.Posicion);
 
 #line default
@@ -508,7 +508,7 @@ using System.Security.Claims;
 #nullable disable
             WriteLiteral("</span></td>\r\n                <td><span class=\"badge badge-danger\">");
 #nullable restore
-#line 89 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Index.cshtml"
+#line 87 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Index.cshtml"
                                                 Write(item.ValorContrato);
 
 #line default
@@ -516,7 +516,7 @@ using System.Security.Claims;
 #nullable disable
             WriteLiteral("</span></td>\r\n              </tr>\r\n");
 #nullable restore
-#line 91 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Index.cshtml"
+#line 89 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Index.cshtml"
               {pos++;}
             }
 
@@ -525,7 +525,7 @@ using System.Security.Claims;
 #nullable disable
             WriteLiteral(@"        
       </tbody>
-    </table>  -->
+    </table> 
     <nav aria-label=""..."">
   <ul class=""pagination"">
     <li class=""page-item disabled"">
