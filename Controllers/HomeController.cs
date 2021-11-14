@@ -242,6 +242,15 @@ namespace TP_NT.Controllers
             return View(EquipoVm);
         }
 
+        public IActionResult AdministrarTorneo()
+        {
+            return View();
+        }
+
+        public IActionResult CrearTorneo()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
