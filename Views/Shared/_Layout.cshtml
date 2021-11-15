@@ -54,7 +54,7 @@
         <a class="nav-link dropdown-toggle" asp-action="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" asp-action="Perfil"><i class="fas fa-user"> @User.FindFirstValue(ClaimTypes.GivenName) </i></a>
+          <a class="dropdown-item" asp-controller="Home" asp-action="Perfil"><i class="fas fa-user"> @User.FindFirstValue(ClaimTypes.GivenName) </i></a>
           <!--<a class="dropdown-item" href="#"><i class="fas fa-key"></i> CAMBIAR PASSWORD</a> -->
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" asp-controller="Login" asp-action="Salir"><i class="fas fa-sign-out-alt"></i>SALIR</a>

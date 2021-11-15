@@ -21,7 +21,7 @@ namespace TP_NT.Models
         public int Rebotes { get; set; }
         public int Robos { get; set; }
         public int Faltas { get; set; }
-        public int Score { get; set; }
+        public int Bloqueos { get; set; }
 
     }
 }

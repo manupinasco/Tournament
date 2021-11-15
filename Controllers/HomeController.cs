@@ -244,12 +244,57 @@ namespace TP_NT.Controllers
 
         public IActionResult AdministrarTorneo()
         {
+            
             return View();
         }
 
-        public IActionResult CrearTorneo()
+        public IActionResult Ranking()
         {
-            return View();
+            DateTime dt = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+            DateTime dt1 = dt.AddDays(7);
+
+            var partidos = _proyectoDbContext.Partidos.Where(x => DateTime.Compare(dt, x.Fecha) <= 0 && DateTime.Compare(x.Fecha, dt1) <= 0).ToList();
+            var jugsConPuntajes = new Dictionary<int, double>();
+            var idJugadores = _proyectoDbContext.Jugadores.ToList();
+
+            foreach(int id in idJugadores) {
+                jugsConPuntajes.Add(id, 0);
+            };
+
+            foreach(Partido p in partidos) {
+                var estadosJugadoresPartido = _proyectoDbContext.StatsJugXPartido.Where(x => x.IdPartido == p.IdPartido).ToList();
+                foreach(StatsJugXPartido s in estadosJugadoresPartido) {
+                    var puntaje = s.Puntos + s.Asistencias + s.Rebotes + s.Robos - s.Faltas + s.Bloqueos;
+                    jugsConPuntajes[s.IdJugador] += puntaje;
+                };
+            };
+
+            var usuarios = _proyectoDbContext.Usuarios.ToList();
+            var rankings = new List<Ranking>();
+
+            foreach(Usuario u in usuarios) {
+                var idJugadoresUsuario = _proyectoDbContext.StatsJugXPartido.Where(x => x.IdUsuario == u.IdUsuario).IdJugador.ToList();
+                var ranking = new Ranking {
+                    NombreUsuario = u.Nombre,
+                    Puntaje = 0
+                };
+                foreach(int id in idJugadoresUsuario) {
+                    ranking.Puntaje += jugsConPuntajes[id];
+                };
+                rankings.Add(ranking);
+            };
+
+            List<Ranking> rankingOrdenado = rankings.OrderBy(o=>o.Puntaje).ToList();
+
+
+            // Conseguir lista de partidos que se dieron entre comienzo y fin de la semana. x
+            // Armar un array de dos dimensiones con los id de los jugadores. x
+            // Por cada partido, traer todos los StatsJugXPartido que le correspondan a su id y calcular el puntaje. x
+            // Meter ese puntaje en la posición del array que le corresponda al id del jugador de ese StatsJugXPartido. x
+            // Traer la lista de usuarios. x
+            // Por cada usuario, recorrer sus jugadores y calcular el puntaje. Meterlo en una colección de Rankings. x
+            // Finalmente, ordenar los elementos de la colección Ranking y ponerles el puesto correspondiente. x
+            return View(rankingOrdenado);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

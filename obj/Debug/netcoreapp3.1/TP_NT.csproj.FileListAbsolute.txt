@@ -466,3 +466,6 @@ C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\staticwebassets\TP_NT.Static
 C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.dll
 C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.pdb
 C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.genruntimeconfig.cache
+C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\AdministrarTorneo.cshtml.g.cs
+C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\CrearTorneo.cshtml.g.cs
+C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\MostrarEquipos.cshtml.g.cs
