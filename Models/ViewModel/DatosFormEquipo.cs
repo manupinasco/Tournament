@@ -47,5 +47,7 @@ namespace TP_NT.Models.ViewModel
         [Required(ErrorMessage = "Elegí un jugador")]
         public double PivotSuplente { get; set; }
         
+
+        public bool YaHayEquipo { get; set; }
     }
 }
