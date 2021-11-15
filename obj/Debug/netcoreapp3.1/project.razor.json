@@ -14400,6 +14400,92 @@
     "CSharpLanguageVersion": 800
   },
   "RootNamespace": "TP_NT",
-  "Documents": [],
+  "Documents": [
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\Ranking.cshtml",
+      "TargetPath": "Views\\Home\\Ranking.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Login\\Register.cshtml",
+      "TargetPath": "Views\\Login\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\MisTorneos.cshtml",
+      "TargetPath": "Views\\Home\\MisTorneos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\Perfil.cshtml",
+      "TargetPath": "Views\\Home\\Perfil.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Shared\\_LayoutLogin.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutLogin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\MostrarEquipos.cshtml",
+      "TargetPath": "Views\\Home\\MostrarEquipos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\CrearEquipo.cshtml",
+      "TargetPath": "Views\\Home\\CrearEquipo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\AdministrarTorneo.cshtml",
+      "TargetPath": "Views\\Home\\AdministrarTorneo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\CrearTorneo.cshtml",
+      "TargetPath": "Views\\Home\\CrearTorneo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\UnirseTorneo.cshtml",
+      "TargetPath": "Views\\Home\\UnirseTorneo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Login\\Index.cshtml",
+      "TargetPath": "Views\\Login\\Index.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
   "SerializationFormat": "0.2"
 }

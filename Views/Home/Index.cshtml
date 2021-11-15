@@ -1,4 +1,4 @@
-﻿@model List<TP_NT.Models.Jugador>
+﻿@model List<TP_NT.Models.ViewModel.IndexVM>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -77,12 +77,12 @@
       <tbody>
       @{int pos = 1;}
 
-        @foreach (var item in ViewBag.jugadores)
+        @foreach (var item in Model[0].Jugadores)
             {
               <tr>
                 <th scope="row">@pos</th> 
                 <td>@item.Nombre @item.Apellido</td>
-               <!-- <td><span class="badge badge-primary">item.Equipo.Nombre</span></td> -->
+                <!--<td><span class="badge badge-primary">item.Equipo.Nombre</span></td>-->
                 <td><span class="badge badge-primary">@item.Posicion</span></td>
                 <td><span class="badge badge-danger">@item.ValorContrato</span></td>
               </tr>
@@ -128,7 +128,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach (var item in ViewBag.tit) {
+            @foreach (var item in Model[0].Titulares) {
               <tr>
                 <td>@item.Nombre @item.Apellido
                 </td>
@@ -145,7 +145,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach (var item in ViewBag.sup) {
+            @foreach (var item in Model[0].Suplentes) {
               <tr>
                 <td>@item.Nombre @item.Apellido
                </td>

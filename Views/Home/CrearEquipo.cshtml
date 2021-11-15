@@ -4,6 +4,13 @@
     ViewData["Title"] = "Crear Equipo";
 }
 
+<div id='modal_dialog'>
+    <div class='title'>
+    </div>
+    <input type='button' value='yes' id='btnYes' />
+    <input type='button' value='no' id='btnNo' />
+</div>
+
 <div class="row"    >
     <div class="card animate__bounceIn">
      <form asp-action="CrearEquipo" method="POST" id="form1">
@@ -63,6 +70,7 @@
                     <div class="d-grid gap-2 mt4">
                     <button class="btn btn-large btn-block btn-success btn-lg" type="button" id="guardarEquipo">Crear Equipo</button>
                     </div>
+                    <h1 style="visibility: hidden;" id="hayEquipo">@Model.YaHayEquipo</h1>
             </form>
         </div>  
   </div>

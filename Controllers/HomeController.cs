@@ -46,13 +46,16 @@ namespace TP_NT.Controllers
                         misSuplentes.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == equiposJugsTit[i].IdJugador).FirstOrDefault());
                 };
 
-              ViewBag.tit = misTitulares;
-              ViewBag.sup = misSuplentes;
-              ViewBag.jugadores = jugadores;
+                var viewmodel = new List<IndexVM> {
+                    new IndexVM {
+                    Jugadores = jugadores,
+                    Titulares = misTitulares,
+                    Suplentes = misSuplentes
+                }};
 
 
 
-                return View();
+                return View(viewmodel);
             }
             return RedirectToAction("Index", "Login");
         }
@@ -125,13 +128,20 @@ namespace TP_NT.Controllers
                             })
                             .ToList();
             
+            var hayEquipo = false;
+
+            if(_proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault() != null) {
+                hayEquipo = true;
+            };
+        
             var datos = new DatosFormEquipo {
                 Presupuesto = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault().Presupuesto,
                 JugadoresBase = jugadoresb,
                 JugadoresEscolta = jugadorese,
                 JugadoresAlero = jugadoresa,
                 JugadoresAlaPivot = jugadoresap,
-                JugadoresPivot = jugadoresp
+                JugadoresPivot = jugadoresp,
+                YaHayEquipo = hayEquipo
             };
 
 
@@ -142,8 +152,6 @@ namespace TP_NT.Controllers
         public IActionResult CrearEquipo(DatosFormEquipo equipoUsuario)
         {
                 var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
-
-                usuario.Presupuesto = equipoUsuario.Presupuesto;
 
                 var equiposUsuariosJugadores = new List<EquipoUserJug> {
                     new EquipoUserJug {
@@ -166,7 +174,7 @@ namespace TP_NT.Controllers
                         Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.AlaPivotTitular).FirstOrDefault(),
                         EsTitular = true
                     },
-                    new EquipoUserJug {
+                    new EquipoUserJug { 
                         Usuario = usuario,
                         Jugador = _proyectoDbContext.Jugadores.Where(x => x.IdJugador == equipoUsuario.PivotTitular).FirstOrDefault(),
                         EsTitular = true
@@ -250,15 +258,17 @@ namespace TP_NT.Controllers
 
         public IActionResult Ranking()
         {
-            DateTime dt = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+            DateTime dt = DateTime.Now;
+            int diff = (7 + (dt.DayOfWeek - DayOfWeek.Monday)) % 7;
+            dt = dt.AddDays(-1 * diff).Date;
             DateTime dt1 = dt.AddDays(7);
 
             var partidos = _proyectoDbContext.Partidos.Where(x => DateTime.Compare(dt, x.Fecha) <= 0 && DateTime.Compare(x.Fecha, dt1) <= 0).ToList();
-            var jugsConPuntajes = new Dictionary<int, double>();
+            var jugsConPuntajes = new Dictionary<int, int>();
             var idJugadores = _proyectoDbContext.Jugadores.ToList();
 
-            foreach(int id in idJugadores) {
-                jugsConPuntajes.Add(id, 0);
+            foreach(Jugador jug in idJugadores) {
+                jugsConPuntajes.Add(jug.IdJugador, 0);
             };
 
             foreach(Partido p in partidos) {
@@ -273,19 +283,28 @@ namespace TP_NT.Controllers
             var rankings = new List<Ranking>();
 
             foreach(Usuario u in usuarios) {
-                var idJugadoresUsuario = _proyectoDbContext.StatsJugXPartido.Where(x => x.IdUsuario == u.IdUsuario).IdJugador.ToList();
+                var jugadoresUsuario = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == u.IdUsuario).ToList();
                 var ranking = new Ranking {
                     NombreUsuario = u.Nombre,
                     Puntaje = 0
                 };
-                foreach(int id in idJugadoresUsuario) {
-                    ranking.Puntaje += jugsConPuntajes[id];
+                foreach(EquipoUserJug jugUser in jugadoresUsuario) {
+                    ranking.Puntaje += jugsConPuntajes[jugUser.IdJugador];
                 };
                 rankings.Add(ranking);
             };
 
             List<Ranking> rankingOrdenado = rankings.OrderBy(o=>o.Puntaje).ToList();
 
+            for(int i = 0; i < 3 && i < rankingOrdenado.Count(); i++) {
+                var ranking = rankingOrdenado[i];
+                var user = _proyectoDbContext.Usuarios.Where(x => x.Nombre == ranking.NombreUsuario).FirstOrDefault();
+                var newUser = user;
+                newUser.Presupuesto += (i * 200);
+                _proyectoDbContext.Entry(user).CurrentValues.SetValues(newUser);
+            }
+
+            _proyectoDbContext.SaveChanges();
 
             // Conseguir lista de partidos que se dieron entre comienzo y fin de la semana. x
             // Armar un array de dos dimensiones con los id de los jugadores. x
