@@ -13,28 +13,28 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\fefe\Desktop\TP_NT\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
 using TP_NT;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\fefe\Desktop\TP_NT\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
 using TP_NT.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\fefe\Desktop\TP_NT\Views\_ViewImports.cshtml"
+#line 4 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\_ViewImports.cshtml"
 using System.Security.Claims;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"aaa711fd29031d74f29a6e53fc86721cbc25d895", @"/Views/Home/Perfil.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"15b29fdc77cafb11a8a668d49ec0b8c0998b75e9", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c4614340178dd6d3a8e687c0a9c8a507dd7324d5", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Perfil : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<TP_NT.Models.Usuario>
     {
         #pragma warning disable 1998
@@ -42,7 +42,7 @@ using System.Security.Claims;
         {
             WriteLiteral("\r\n");
 #nullable restore
-#line 3 "C:\Users\fefe\Desktop\TP_NT\Views\Home\Perfil.cshtml"
+#line 3 "C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\Views\Home\Perfil.cshtml"
   
     ViewData["Title"] = "Perfil";
 

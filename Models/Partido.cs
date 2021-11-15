@@ -14,5 +14,7 @@ namespace TP_NT.Models
         public int PuntosLocal { get; set; }
         public int PuntosVisitante { get; set; }
 
+        public DateTime Fecha { get; set;}
+
     }
 }
