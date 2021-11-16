@@ -6,7 +6,8 @@
 
 <div class="card text-center">
     <div class="card-header">
-        <span class="badge bg-primary text-white" style="font-size:18px;">MIS TORNEOS</span>
+        <span class="badge bg-primary text-white" style="font-size:18px; float:left;">MIS TORNEOS</span>
+        <button type="button" class="btn btn-outline-success" style="margin-left:700px;" data-toggle="modal" data-target="#myModal">CREAR TORNEO</button>
     </div>
     <div class="card-body">
 
@@ -40,4 +41,27 @@
     <div class="card-footer text-muted">
             <i class="fas fa-basketball-ball"></i>
     </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#F7F7F7;">
+          <h4 class="modal-title">Arma tu torneo</h4>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Ingresa el nombre de tu torneo">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="button">Crear</button>
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
