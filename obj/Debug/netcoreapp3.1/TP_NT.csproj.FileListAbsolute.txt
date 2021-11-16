@@ -469,3 +469,5 @@ C:\Users\fefe\Desktop\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.genruntimeconfig.cache
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\AdministrarTorneo.cshtml.g.cs
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\CrearTorneo.cshtml.g.cs
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\MostrarEquipos.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\AdministrarTorneo.cshtml.g.cs
+C:\ORT\SEGUNDO CUATRIMESTRE\PP I Programación en Nuevas\TP_FINAL_NT\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\CrearTorneo.cshtml.g.cs
