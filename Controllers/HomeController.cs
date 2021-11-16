@@ -258,6 +258,7 @@ namespace TP_NT.Controllers
 
         public IActionResult Ranking()
         {
+            /*
             DateTime dt = DateTime.Now;
             int diff = (7 + (dt.DayOfWeek - DayOfWeek.Monday)) % 7;
             dt = dt.AddDays(-1 * diff).Date;
@@ -321,5 +322,8 @@ namespace TP_NT.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        */
+            return View();
     }
-}
+   }
+}    

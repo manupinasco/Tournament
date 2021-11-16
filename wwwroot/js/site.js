@@ -7,7 +7,7 @@ let dict = {};
 
 function ValidateJugSelection(nombre, elemento)  
 {  
-    contrato = elemento.selectedOptions[0].text.substr(-4);
+  contrato = elemento.selectedOptions[0].text.substr(-4);
    if(nombre in dict) {
         usuarioPlata = parseFloat(document.getElementById("plata").innerHTML) + parseFloat(dict[nombre]);
         dict[nombre] = contrato;
@@ -21,21 +21,16 @@ function ValidateJugSelection(nombre, elemento)
     }
 }   
 
-function enviarFormulario() {
+function verificarPresupuesto() {
     const SIN_SALDO = 0;
     if (parseFloat(document.getElementById("plata").innerHTML) < SIN_SALDO) {
+        document.querySelector('#presupuestoColor').classList.add("badge-danger");
         toastr.error("No tiene presupuesto!", "Aviso!");
         return false;
     }
     else {
-        var option = true;
-        var hayEquipo = document.getElementById("hayEquipo");
-            if (hayEquipo) {
-                option = confirm("Ya existe un equipo. ¿Quiere reemplazarlo?");
-            }
-            if(option) {
-                document.querySelector("#form1").submit();
-            }
+        document.querySelector('#presupuestoColor').classList.remove("badge-danger");
+        validarCampos();
     }
 }
 
@@ -51,8 +46,19 @@ function validarCampos(){
         enviarFormulario();
     }
 
+function enviarFormulario(){
+  var option = true;
+  var hayEquipo = document.getElementById("hayEquipo");
+      if (hayEquipo) {
+          option = confirm("Ya existe un equipo. ¿Quiere reemplazarlo?");
+      }
+      if(option) {
+          document.querySelector("#form1").submit();
+      }
+}
+
 let guardarEquipo = document.querySelector("#guardarEquipo");
-guardarEquipo.addEventListener("click",validarCampos);
+guardarEquipo.addEventListener("click",verificarPresupuesto);
 
 function Confirm(title, msg, $true, $false, $link) {
     var $content =  "<div class='dialog-ovelay'>" +

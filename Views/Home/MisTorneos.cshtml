@@ -1,49 +1,43 @@
-@model TP_NT.Models.Torneo
+@model TP_NT.Models.ViewModel.Ranking
 
 @{
-    ViewData["Title"] = "Mis torneos";
+    ViewData["Title"] = "Unirse a un torneo";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-8">
-            <table class="table">
-                <thead>
-                    <tr>
-                    <th scope="col"></th>
+<div class="card text-center">
+    <div class="card-header">
+        <span class="badge bg-primary text-white" style="font-size:18px;">MIS TORNEOS</span>
+    </div>
+    <div class="card-body">
+
+        <table class="table table-striped table-bordered table-condensed table-sm mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Propietario</th>
                     <th scope="col">Torneo</th>
-                    <th scope="col"></th>
-                    <th scope="col">Ver</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row"></th>
-                    <td>Torneo de mi amigo</td>
-                    <td></td>
-                    <td><button type="button" class="btn btn-outline-primary">Ver torneo</button></td>
-                    </tr>
-                    <tr>
-                    <th scope="row"></th>
-                    <td>Torneo mio</td>
-                    <td><button type="button" class="btn btn-outline-primary">Administrar</button></td>
-                    <td><button type="button" class="btn btn-outline-primary">Ver torneo</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-4">
-            <button type="button" class="btn btn-primary btn-lg">Crear</button>
-            <button type="button" class="btn btn-primary btn-lg">Inscribirse</button>
-        </div>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr>
+                    <td class="text-primary">Usted</td>
+                    <td>Liga top</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary">Administrar <i class="fas fa-user-edit"></i></button>
+                        <button type="button" class="btn btn-outline-danger">Eliminar <i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>                 
+                <tr>
+                    <td>Pepe</td>
+                    <td>Liga Crazy</td>
+                    <td><button type="button" class="btn btn-outline-danger">Eliminar <i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+              
+            </tbody>
+        </table>
+
+    </div>
+    <div class="card-footer text-muted">
+            <i class="fas fa-basketball-ball"></i>
     </div>
 </div>
-
-    
-     
-
-    
-
-   
-    
-    
