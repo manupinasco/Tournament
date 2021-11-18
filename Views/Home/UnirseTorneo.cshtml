@@ -1,4 +1,4 @@
-@model TP_NT.Models.ViewModel.Ranking
+@model TP_NT.Models.TorneoVM
 
 @{
     ViewData["Title"] = "Unirse a un torneo";
@@ -19,12 +19,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Amilcar</td>
-                    <td>Liga Crazy</td>
-                    <td><button type="button" class="btn btn-outline-primary">Inscribirse <i
-                    class='fas fa-pencil-alt'></i></button></td>
-                </tr>
+                @foreach (var item in Model.Torneos)
+                {
+                    <tr>
+                      <td class="text-primary">@item.Creador.Nombre</td>
+                      <td>@item.Nombre</td>
+                      <td><a class="nav-link" asp-controller="Home" asp-action="UnirseTorneo" asp-route-id="@item.Id">Inscribirse</a></td>
+                    </tr>
+                }
             </tbody>
         </table>
 

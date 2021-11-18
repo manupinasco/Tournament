@@ -191,28 +191,105 @@ namespace TP_NT.Controllers
  
         public IActionResult UnirseTorneo()
         {
-            return View();
+            var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
+            var torneos = _proyectoDbContext.Torneos.ToList();
+            var unirseTorneos = new TorneoVM {
+                Torneos = new List<TorneoViewModel>()
+            };
+            foreach(Torneo t in torneos) {
+                var torneoUsuario = _proyectoDbContext.TorneoUsuarios.Where(x => x.Torneo == t && x.Usuario == usuario).FirstOrDefault();
+                var pertenece = torneoUsuario != null;
+                if(!pertenece) {
+                    var creador = _proyectoDbContext.TorneoUsuarios.Where(x => x.IdTorneo == t.Id && x.EsCreador).FirstOrDefault();
+                    unirseTorneos.Torneos.Add(new TorneoViewModel {
+                        Id = t.Id,
+                        Nombre = t.Nombre,
+                        Creador = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == creador.IdUsuario).FirstOrDefault()
+                    });
+                };
+            };
+
+            return View(unirseTorneos);
+        }
+
+        [Route("Home/UnirseTorneo/{id:int}")]
+        public IActionResult UnirseTorneo(int id) {
+            var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
+            var torneo = _proyectoDbContext.Torneos.Where(x => x.Id == id).FirstOrDefault();
+
+            var torneoUser = new TorneoUsuario {
+                Usuario = usuario,
+                Torneo = torneo,
+                EsCreador = false
+            };
+
+            _proyectoDbContext.TorneoUsuarios.Add(torneoUser);
+            _proyectoDbContext.SaveChanges();
+            
+            var torneos = _proyectoDbContext.Torneos.ToList();
+            var unirseTorneos = new TorneoVM {
+                Torneos = new List<TorneoViewModel>()
+            };
+            foreach(Torneo t in torneos) {
+                var torneoUsuario = _proyectoDbContext.TorneoUsuarios.Where(x => x.Torneo == t && x.Usuario == usuario).FirstOrDefault();
+                var pertenece = torneoUsuario != null;
+                if(!pertenece) {
+                    var creador = _proyectoDbContext.TorneoUsuarios.Where(x => x.IdTorneo == t.Id && x.EsCreador).FirstOrDefault();
+                    unirseTorneos.Torneos.Add(new TorneoViewModel {
+                        Id = t.Id,
+                        Nombre = t.Nombre,
+                        Creador = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == creador.IdUsuario).FirstOrDefault()
+                    });
+                };
+            };
+
+            return View(unirseTorneos);
         }
  
         [HttpGet]
         public IActionResult MisTorneos()
         {
+            var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
+            var torneos = _proyectoDbContext.Torneos.ToList();
+            var misTorneos = new TorneoVM {
+                Torneos = new List<TorneoViewModel>()
+            };
+            foreach(Torneo t in torneos) {
+                var torneoUsuario = _proyectoDbContext.TorneoUsuarios.Where(x => x.Torneo == t && x.Usuario == usuario).FirstOrDefault();
+                var pertenece = torneoUsuario != null;
+                if(pertenece) {
+                    if(torneoUsuario.EsCreador) {
+                        misTorneos.Torneos.Add(new TorneoViewModel {
+                            Id = t.Id,
+                            Nombre = t.Nombre,
+                            Creador = usuario
+                        });
+                    };
+                    if(!torneoUsuario.EsCreador) {
+                        var creador = _proyectoDbContext.TorneoUsuarios.Where(x => x.IdTorneo == t.Id && x.EsCreador).FirstOrDefault();
+                        misTorneos.Torneos.Add(new TorneoViewModel {
+                            Id = t.Id,
+                            Nombre = t.Nombre,
+                            Creador = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == creador.IdUsuario).FirstOrDefault()
+                        });
+                    };
+                };
+            };
 
-
-            return View();
+            return View(misTorneos);
         }
 
         [HttpPost]
-        public IActionResult MisTorneos(Torneo torneo)
+        public IActionResult MisTorneos(TorneoVM torneo)
         {
             if (ModelState.IsValid)
             {
                 var t= new Torneo
                 {
-                    Nombre = torneo.Nombre
+                    Nombre = torneo.NombreTorneo
  
                 };
- 
+
                 var torneoUsuario = new TorneoUsuario {
                     Torneo = t,
                     Usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault(),
@@ -227,6 +304,7 @@ namespace TP_NT.Controllers
             }
             return View();
         }
+        
  
         public IActionResult Perfil()
         {
@@ -320,12 +398,70 @@ namespace TP_NT.Controllers
             // Finalmente, ordenar los elementos de la colección Ranking y ponerles el puesto correspondiente. x
             return View(rankingOrdenado);
         }
+
+        [Route("Home/RankingTorneo/{id:int}")]
+        public IActionResult RankingTorneo(int id)
+        {
+            DateTime dt = DateTime.Now;
+            int diff = (7 + (dt.DayOfWeek - DayOfWeek.Monday)) % 7;
+            dt = dt.AddDays(-1 * diff).Date;
+            DateTime dt1 = dt.AddDays(7);
+ 
+            var partidos = _proyectoDbContext.Partidos.Where(x => DateTime.Compare(dt, x.Fecha) <= 0 && DateTime.Compare(x.Fecha, dt1) <= 0).ToList();
+            var jugsConPuntajes = new Dictionary<int, int>();
+            var idJugadores = _proyectoDbContext.Jugadores.ToList();
+ 
+            foreach(Jugador jug in idJugadores) {
+                jugsConPuntajes.Add(jug.IdJugador, 0);
+            };
+ 
+            foreach(Partido p in partidos) {
+                var estadosJugadoresPartido = _proyectoDbContext.StatsJugXPartido.Where(x => x.IdPartido == p.IdPartido).ToList();
+                foreach(StatsJugXPartido s in estadosJugadoresPartido) {
+                    var puntaje = s.Puntos + s.Asistencias + s.Rebotes + s.Robos - s.Faltas + s.Bloqueos;
+                    jugsConPuntajes[s.IdJugador] += puntaje;
+                };
+            };
+
+            var torneoUsuario = _proyectoDbContext.TorneoUsuarios.Where(x => x.IdTorneo == id).ToList();
+            var usuarios = new List<Usuario>();
+            foreach(TorneoUsuario t in torneoUsuario) {
+                usuarios.Add(_proyectoDbContext.Usuarios.Where(x => x.IdUsuario == t.IdUsuario).FirstOrDefault());
+            };
+
+            var rankings = new List<Ranking>();
+ 
+            foreach(Usuario u in usuarios) {
+                var jugadoresUsuario = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == u.IdUsuario).ToList();
+                var ranking = new Ranking {
+                    NombreUsuario = u.Nombre,
+                    Puntaje = 0
+                };
+                foreach(EquipoUserJug jugUser in jugadoresUsuario) {
+                    ranking.Puntaje += jugsConPuntajes[jugUser.IdJugador];
+                };
+                rankings.Add(ranking);
+            };
+ 
+            List<Ranking> rankingOrdenado = rankings.OrderByDescending(o=>o.Puntaje).ToList();
+ 
+            // Conseguir lista de partidos que se dieron entre comienzo y fin de la semana. x
+            // Armar un array de dos dimensiones con los id de los jugadores. x
+            // Por cada partido, traer todos los StatsJugXPartido que le correspondan a su id y calcular el puntaje. x
+            // Meter ese puntaje en la posición del array que le corresponda al id del jugador de ese StatsJugXPartido. x
+            // Traer la lista de usuarios. x
+            // Por cada usuario, recorrer sus jugadores y calcular el puntaje. Meterlo en una colección de Rankings. x
+            // Finalmente, ordenar los elementos de la colección Ranking y ponerles el puesto correspondiente. x
+            return View(rankingOrdenado);
+        }
  
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        
    }
 }    
 
