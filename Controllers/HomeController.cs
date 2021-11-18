@@ -34,7 +34,7 @@ namespace TP_NT.Controllers
                 var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
                 List<Jugador> misTitulares = new List<Jugador>();
                 List<Jugador> misSuplentes = new List<Jugador>();
-                List<Jugador> jugadores = _proyectoDbContext.Jugadores.Include(x=> x.Equipo).ToList();
+                List<Jugador> jugadores = _proyectoDbContext.Jugadores.Include(x => x.Equipo).ToList();
                 List<EquipoUserJug> equiposJugsTit;
                 List<EquipoUserJug> equiposJugsSup;
                 bool yaHayEquipo = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == usuario.IdUsuario).FirstOrDefault() != null;
@@ -57,9 +57,6 @@ namespace TP_NT.Controllers
                     Suplentes = misSuplentes,
                     YaHayEquipo = yaHayEquipo
                 }};
- 
- 
- 
                 return View(viewmodel);
             }
             return RedirectToAction("Index", "Login");
