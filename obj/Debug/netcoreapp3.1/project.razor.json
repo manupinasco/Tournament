@@ -14432,6 +14432,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\RankingTorneo.cshtml",
+      "TargetPath": "Views\\Home\\RankingTorneo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Emanuel\\Desktop\\TP_NT_1\\TP_NT\\Views\\Home\\MostrarEquipos.cshtml",
       "TargetPath": "Views\\Home\\MostrarEquipos.cshtml",
       "FileKind": "mvc"

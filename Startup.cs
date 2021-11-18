@@ -64,6 +64,18 @@ namespace TP_NT
                     name: "default",
                     pattern: "{controller=Login}/{action=Index}/{id?}");
             });
+
+            /*app.UseMvc(routes =>
+{
+    // need route and attribute on controller: [Area("Blogs")]
+    routes.MapRoute(name: "mvcAreaRoute",
+                    template: "{area:exists}/{controller=Home}/{action=Index}");
+
+    // default route for non-areas
+    routes.MapRoute(
+        name: "default",
+        template: "{controller=Home}/{action=Index}/{id?}");
+});*/
             
             // UseCookiePolicy al final de la configuracion
 			app.UseCookiePolicy();

@@ -87,3 +87,4 @@ C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.csproj.Copy
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.dll
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.pdb
 C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\TP_NT.genruntimeconfig.cache
+C:\Users\Emanuel\Desktop\TP_NT_1\TP_NT\obj\Debug\netcoreapp3.1\Razor\Views\Home\RankingTorneo.cshtml.g.cs

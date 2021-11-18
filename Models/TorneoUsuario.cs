@@ -19,7 +19,7 @@ namespace TP_NT.Models
         public int IdTorneo{get; set;} 
         public Torneo Torneo {get; set; }
 
-        public bool EsCreador {get; set; }
+        public bool EsCreador { get; set; }
 
     }
 }

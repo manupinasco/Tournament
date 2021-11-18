@@ -1,4 +1,4 @@
-@model TP_NT.Models.Torneo
+@model TP_NT.Models.TorneoVM
 
 @{
     ViewData["Title"] = "Unirse a un torneo";
@@ -20,20 +20,20 @@
                 </tr>
             </thead>
             <tbody>
-                 <tr>
-                    <td class="text-primary">Usted</td>
-                    <td>Liga top</td>
-                    <td>
-                        <button type="button" class="btn btn-outline-primary">Administrar <i class="fas fa-user-edit"></i></button>
-                        <button type="button" class="btn btn-outline-danger">Eliminar <i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>                 
-                <tr>
-                    <td>Pepe</td>
-                    <td>Liga Crazy</td>
-                    <td><button type="button" class="btn btn-outline-danger">Eliminar <i class="fas fa-trash-alt"></i></button></td>
-                </tr>
-              
+
+                @foreach (var item in Model.Torneos)
+                {
+                    <tr>
+                      <td class="text-primary">@item.Creador.Nombre</td>
+                      <td>@item.Nombre</td>
+                      <td>
+                        <a class="nav-link" asp-controller="Home" asp-action="RankingTorneo" asp-route-id="@item.Id">Ver Ranking</a>
+                        <!--<button type="button" class="btn btn-outline-primary" asp-controller="Home" asp-action="RankingTorneo" asp-route-homeid="item.Id">Ver Ranking<i class="fas fa-user-edit"></i></button>-->
+                        <!--<button type="button" class="btn btn-outline-danger">Eliminar <i class="fas fa-trash-alt"></i></button>-->
+                      </td>
+                    </tr>
+                }
+
             </tbody>
         </table>
 
@@ -53,7 +53,7 @@
         <div class="modal-body">
           <form asp-action="MisTorneos" method="POST">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ingresa el nombre de tu torneo" asp-for="Nombre">
+            <input type="text" class="form-control" placeholder="Ingresa el nombre de tu torneo" asp-for="NombreTorneo">
             <div class="input-group-append">
                 <button class="btn btn-success" type="submit">Crear</button>
             </div>
