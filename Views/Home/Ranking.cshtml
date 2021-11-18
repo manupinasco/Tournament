@@ -1,4 +1,4 @@
-@model TP_NT.Models.ViewModel.Ranking
+@model List<TP_NT.Models.ViewModel.Ranking>
 
 @{
     ViewData["Title"] = "Ranking";
@@ -155,21 +155,17 @@
         </tr>
       </thead>
       <tbody>
-          <tr>
-            <td><span class="badge badge-warning">Puesto</span></td>
-            <td><span class="badge badge-primary">Equipo</span></td>
-            <td><span class="badge badge-danger">Puntaje</span></td>
+        @{int pos = 1;}
+        
+        @foreach (var item in Model)
+        {
+            <tr>
+            <td><span class="badge badge-warning">@pos</span></td>
+            <td><span class="badge badge-primary">@item.NombreUsuario</span></td>
+            <td><span class="badge badge-danger">@item.Puntaje</span></td>
           </tr>
-          <tr>
-            <td><span class="badge badge-warning">Puesto</span></td>
-            <td><span class="badge badge-primary">Equipo</span></td>
-            <td><span class="badge badge-danger">Puntaje</span></td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-warning">Puesto</span></td>
-            <td><span class="badge badge-primary">Equipo</span></td>
-            <td><span class="badge badge-danger">Puntaje</span></td>
-          </tr>                    
+          {pos++;}
+        }                   
       </tbody>
     </table>
     <nav aria-label="...">

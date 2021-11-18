@@ -12,6 +12,8 @@ namespace TP_NT.Models.ViewModel
         public List<Jugador> Titulares { get; set;}
 
         public List<Jugador> Suplentes { get; set;}
+
+        public bool YaHayEquipo { get; set; }
         
     }
 }

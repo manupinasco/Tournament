@@ -10,8 +10,8 @@ using TP_NT.Database;
 namespace TP_NT.Migrations
 {
     [DbContext(typeof(ProyectoDbContext))]
-    [Migration("20211115182549_InicialCreate")]
-    partial class InicialCreate
+    [Migration("20211116215036_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
