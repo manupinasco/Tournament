@@ -1,4 +1,4 @@
-@model TP_NT.Models.ViewModel.Ranking
+@model TP_NT.Models.Torneo
 
 @{
     ViewData["Title"] = "Unirse a un torneo";
@@ -51,12 +51,14 @@
           <h4 class="modal-title">Arma tu torneo</h4>
         </div>
         <div class="modal-body">
+          <form asp-action="MisTorneos" method="POST">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Ingresa el nombre de tu torneo">
+            <input type="text" class="form-control" placeholder="Ingresa el nombre de tu torneo" asp-for="Nombre">
             <div class="input-group-append">
-                <button class="btn btn-success" type="button">Crear</button>
+                <button class="btn btn-success" type="submit">Crear</button>
             </div>
             </div>
+            </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

@@ -54,45 +54,13 @@ namespace TP_NT.Controllers
                     new IndexVM {
                     Jugadores = jugadores,
                     Titulares = misTitulares,
-                    Suplentes = misSuplentes,
-                    YaHayEquipo = yaHayEquipo
+                    Suplentes = misSuplentes
                 }};
                 return View(viewmodel);
             }
             return RedirectToAction("Index", "Login");
         }
- 
-        [HttpGet]
-        public IActionResult CrearTorneo()
-        {
-            return View();
-        }
-   
-        [HttpPost]
-        public IActionResult CrearTorneo(Torneo torneo)
-        {
-            if (ModelState.IsValid)
-            {
-                var t= new Torneo
-                {
-                    Nombre = torneo.Nombre
- 
-                };
- 
-                var torneoUsuario = new TorneoUsuario {
-                    Torneo = t,
-                    Usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault(),
-                    EsCreador = true
-                };
- 
-                _proyectoDbContext.Torneos.Add(t);
-                _proyectoDbContext.TorneoUsuarios.Add(torneoUsuario);
-                _proyectoDbContext.SaveChanges();
- 
-                return RedirectToAction("CrearTorneo", "Home");
-            }
-            return View();
-        }
+
  
         [HttpGet]
         public IActionResult CrearEquipo()
@@ -226,8 +194,37 @@ namespace TP_NT.Controllers
             return View();
         }
  
+        [HttpGet]
         public IActionResult MisTorneos()
         {
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult MisTorneos(Torneo torneo)
+        {
+            if (ModelState.IsValid)
+            {
+                var t= new Torneo
+                {
+                    Nombre = torneo.Nombre
+ 
+                };
+ 
+                var torneoUsuario = new TorneoUsuario {
+                    Torneo = t,
+                    Usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault(),
+                    EsCreador = true
+                };
+ 
+                _proyectoDbContext.Torneos.Add(t);
+                _proyectoDbContext.TorneoUsuarios.Add(torneoUsuario);
+                _proyectoDbContext.SaveChanges();
+ 
+                return RedirectToAction("MisTorneos", "Home");
+            }
             return View();
         }
  

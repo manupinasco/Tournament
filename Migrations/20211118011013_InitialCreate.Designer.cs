@@ -10,7 +10,7 @@ using TP_NT.Database;
 namespace TP_NT.Migrations
 {
     [DbContext(typeof(ProyectoDbContext))]
-    [Migration("20211116215036_InitialCreate")]
+    [Migration("20211118011013_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -191,6 +191,31 @@ namespace TP_NT.Migrations
                     b.ToTable("Torneos");
                 });
 
+            modelBuilder.Entity("TP_NT.Models.TorneoUsuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("EsCreador")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("IdTorneo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdTorneo");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("TorneoUsuarios");
+                });
+
             modelBuilder.Entity("TP_NT.Models.Usuario", b =>
                 {
                     b.Property<int>("IdUsuario")
@@ -311,6 +336,25 @@ namespace TP_NT.Migrations
                     b.Navigation("Jugador");
 
                     b.Navigation("Partido");
+                });
+
+            modelBuilder.Entity("TP_NT.Models.TorneoUsuario", b =>
+                {
+                    b.HasOne("TP_NT.Models.Torneo", "Torneo")
+                        .WithMany()
+                        .HasForeignKey("IdTorneo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TP_NT.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Torneo");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("TorneoUsuario", b =>

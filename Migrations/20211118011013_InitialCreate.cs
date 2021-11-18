@@ -128,6 +128,33 @@ namespace TP_NT.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TorneoUsuarios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false),
+                    IdTorneo = table.Column<int>(type: "int", nullable: false),
+                    EsCreador = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TorneoUsuarios", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TorneoUsuarios_Torneos_IdTorneo",
+                        column: x => x.IdTorneo,
+                        principalTable: "Torneos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TorneoUsuarios_Usuarios_IdUsuario",
+                        column: x => x.IdUsuario,
+                        principalTable: "Usuarios",
+                        principalColumn: "IdUsuario",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "EquipoUserJugs",
                 columns: table => new
                 {
@@ -254,6 +281,16 @@ namespace TP_NT.Migrations
                 name: "IX_TorneoUsuario_UsuariosIdUsuario",
                 table: "TorneoUsuario",
                 column: "UsuariosIdUsuario");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TorneoUsuarios_IdTorneo",
+                table: "TorneoUsuarios",
+                column: "IdTorneo");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TorneoUsuarios_IdUsuario",
+                table: "TorneoUsuarios",
+                column: "IdUsuario");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -269,6 +306,9 @@ namespace TP_NT.Migrations
 
             migrationBuilder.DropTable(
                 name: "TorneoUsuario");
+
+            migrationBuilder.DropTable(
+                name: "TorneoUsuarios");
 
             migrationBuilder.DropTable(
                 name: "Jugadores");
