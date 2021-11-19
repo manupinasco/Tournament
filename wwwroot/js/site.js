@@ -48,7 +48,7 @@ function validarCampos(){
 
 function enviarFormulario(){
   var option = true;
-  var hayEquipo = document.getElementById("hayEquipo");
+  var hayEquipo = document.getElementById("guardarEquipo").value;
       if (hayEquipo) {
           option = confirm("Ya existe un equipo. ¿Quiere reemplazarlo?");
       }
