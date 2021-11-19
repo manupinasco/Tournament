@@ -4,19 +4,14 @@
     ViewData["Title"] = "Crear Equipo";
 }
 
-<div id='modal_dialog'>
-    <div class='title'>
-    </div>
-    <input type='button' value='yes' id='btnYes' />
-    <input type='button' value='no' id='btnNo' />
-</div>
-
 <div class="miCaja">
+    <div id="alertMessage"></div>
     <div class="row">
         <div class="card animate__bounceIn">
             <form asp-action="CrearEquipo" method="POST" id="form1">
-                <h4 class="card-header"><span class="badge badge-primary" id="presupuestoColor">TU PRESUPUESTO $<span
-                            id="plata" asp-for="Presupuesto">@Model.Presupuesto</span></span></h4>
+                <h4 class="card-header">
+                        <span class="badge badge-primary" id="presupuestoColor">TU PRESUPUESTO $<span
+                        id="plata" asp-for="Presupuesto">@Model.Presupuesto</span></span></h4>
                 <div class="card-body">
                     <div class="input-group mb-3">
                         <span class="input-group-text">TITULAR</span>
@@ -90,9 +85,9 @@
                     </div>
                     <div class="d-grid gap-2 mt4">
                         <button class="btn btn-large btn-block btn-outline-primary btn-lg" type="button"
-                            id="guardarEquipo">Crear Equipo</button>
+                            id="guardarEquipo" value="@Model.YaHayEquipo">Crear Equipo</button>
                     </div>
-                    <h1 style="visibility: hidden;" id="hayEquipo">@Model.YaHayEquipo</h1>
+
             </form>
         </div>
     </div>

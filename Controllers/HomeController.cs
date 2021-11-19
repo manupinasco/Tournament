@@ -27,14 +27,14 @@ namespace TP_NT.Controllers
             this._proyectoDbContext = ProyectoDbContext;
         }
  
-        public IActionResult Index()
+        public IActionResult Index(int pagina)
         {
            if (User.Identity.IsAuthenticated)
             {
                 var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
                 List<Jugador> misTitulares = new List<Jugador>();
                 List<Jugador> misSuplentes = new List<Jugador>();
-                List<Jugador> jugadores = _proyectoDbContext.Jugadores.Include(x => x.Equipo).ToList();
+                List<Jugador> jugadores = _proyectoDbContext.Jugadores.Include(x => x.Equipo).Skip(pagina).Take(5).ToList();
                 List<EquipoUserJug> equiposJugsTit;
                 List<EquipoUserJug> equiposJugsSup;
                 bool yaHayEquipo = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == usuario.IdUsuario).FirstOrDefault() != null;
