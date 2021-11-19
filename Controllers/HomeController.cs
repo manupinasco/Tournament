@@ -104,11 +104,7 @@ namespace TP_NT.Controllers
                             })
                             .ToList();
            
-            var hayEquipo = false;
- 
-            if(_proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault() != null) {
-                hayEquipo = true;
-            };
+            var hayEquipo = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault() != null;
        
             var datos = new DatosFormEquipo {
                 Presupuesto = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault().Presupuesto,
@@ -119,7 +115,7 @@ namespace TP_NT.Controllers
                 JugadoresPivot = jugadoresp,
                 YaHayEquipo = hayEquipo
             };
- 
+
  
             return View(datos);
         }
@@ -128,6 +124,17 @@ namespace TP_NT.Controllers
         public IActionResult CrearEquipo(DatosFormEquipo equipoUsuario)
         {
                 var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
+
+                var yaHayEquipo = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault() != null;
+
+                List<EquipoUserJug> equiposUsuariosJugadoresViejos;
+
+                if(yaHayEquipo) {
+                    equiposUsuariosJugadoresViejos = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == usuario.IdUsuario).ToList();
+                    foreach(EquipoUserJug e in equiposUsuariosJugadoresViejos) {
+                        _proyectoDbContext.EquipoUserJugs.Remove(e);
+                    }
+                };
  
                 var equiposUsuariosJugadores = new List<EquipoUserJug> {
                     new EquipoUserJug {
@@ -181,12 +188,13 @@ namespace TP_NT.Controllers
                         EsTitular = false
                     }
                 };
-                       
-                _proyectoDbContext.EquipoUserJugs.AddRange(equiposUsuariosJugadores);
+
+                _proyectoDbContext.EquipoUserJugs.AddRange(equiposUsuariosJugadores);     
+                
  
                 _proyectoDbContext.SaveChanges();
                 return RedirectToAction("Index", "Home");
- 
+                // Reescribir el viejo equipo
         }
  
         public IActionResult UnirseTorneo()
