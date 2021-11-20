@@ -14,6 +14,8 @@ namespace TP_NT.Models.ViewModel
         public List<Jugador> Suplentes { get; set;}
 
         public bool YaHayEquipo { get; set; }
-        
+        public int CantPaginas { get; set;}
+        public int Pagina { get; set;}
+
     }
 }

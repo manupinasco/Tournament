@@ -31,10 +31,17 @@ namespace TP_NT.Controllers
         {
            if (User.Identity.IsAuthenticated)
             {
+                if(pagina == 0){
+                    pagina = 1;
+                }
                 var usuario = _proyectoDbContext.Usuarios.Where(x => x.IdUsuario == Int32.Parse(@User.FindFirstValue(ClaimTypes.NameIdentifier))).FirstOrDefault();
                 List<Jugador> misTitulares = new List<Jugador>();
                 List<Jugador> misSuplentes = new List<Jugador>();
-                List<Jugador> jugadores = _proyectoDbContext.Jugadores.Include(x => x.Equipo).Skip(pagina).Take(5).ToList();
+                var cantFilas =  _proyectoDbContext.Jugadores.Include(x => x.Equipo).Count();
+                var registrosXPagina = 5;
+                var incicio = (pagina - 1) * registrosXPagina;
+                var cantPaginas = cantFilas / registrosXPagina;
+                List<Jugador> jugadores = _proyectoDbContext.Jugadores.Include(x => x.Equipo).Skip(incicio).Take(registrosXPagina).ToList();
                 List<EquipoUserJug> equiposJugsTit;
                 List<EquipoUserJug> equiposJugsSup;
                 bool yaHayEquipo = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == usuario.IdUsuario).FirstOrDefault() != null;
@@ -48,14 +55,16 @@ namespace TP_NT.Controllers
                         misSuplentes.Add(_proyectoDbContext.Jugadores.Where(x => x.IdJugador == equiposJugsTit[i].IdJugador).FirstOrDefault());
                     };
                 }
-               
- 
+
                 var viewmodel = new List<IndexVM> {
                     new IndexVM {
                     Jugadores = jugadores,
                     Titulares = misTitulares,
-                    Suplentes = misSuplentes
+                    Suplentes = misSuplentes,
+                    CantPaginas = cantPaginas,
+                    Pagina = pagina
                 }};
+
                 return View(viewmodel);
             }
             return RedirectToAction("Index", "Login");
