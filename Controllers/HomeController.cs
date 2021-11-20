@@ -13,7 +13,8 @@ using TP_NT.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using System.Security.Claims;
- 
+using System.Globalization;
+
 namespace TP_NT.Controllers
 {
     public class HomeController : Controller
@@ -26,9 +27,606 @@ namespace TP_NT.Controllers
         {
             this._proyectoDbContext = ProyectoDbContext;
         }
+
+        public IActionResult Create() {
+            var equipo = new Equipo {
+                    Nombre = "bulls.png" 
+                };
+            var equipoDos = new Equipo {
+                    Nombre = "lakers.png"
+                };
+
+            var equipos = new List<Equipo> {
+                equipo,
+                equipoDos
+            };
+
+            CultureInfo culture = new CultureInfo("es-ES");     
+
+            var partido = new Partido {
+                Local = equipo,
+                Visitante = equipoDos,
+                PuntosLocal = 10,
+                PuntosVisitante = 20,
+                Fecha = Convert.ToDateTime("20/11/2021 12:10:15 PM", culture)
+            };
+
+            var partidoDos = new Partido {
+                Local = equipoDos,
+                Visitante = equipo,
+                PuntosLocal = 5,
+                PuntosVisitante = 7,
+                Fecha = Convert.ToDateTime("20/11/20 12:10:15 PM", culture)
+            };
+
+            var partidos = new List<Partido> {
+                partido,
+                partidoDos
+            };
+            
+            var jugadores = new List<Jugador> {
+                new Jugador {
+                    Nombre = "Michael",
+                    Apellido = "Jordan",
+                    Equipo = equipo,
+                    Posicion = Posiciones.ESCOLTA,
+                    ValorContrato = 100
+                },
+                new Jugador {
+                    Nombre = "Scottie",
+                    Apellido = "Pippen",
+                    Equipo = equipo,
+                    Posicion = Posiciones.ALERO,
+                    ValorContrato = 300
+                },
+                new Jugador {
+                    Nombre = "Zach",
+                    Apellido = "LaVine",
+                    Equipo = equipo,
+                    Posicion = Posiciones.ALERO,
+                    ValorContrato = 400
+                },
+                new Jugador {
+                    Nombre = "DeMar",
+                    Apellido = "DeRozan",
+                    Equipo = equipo,
+                    Posicion = Posiciones.ESCOLTA,
+                    ValorContrato = 200
+                },
+                new Jugador {
+                    Nombre = "Derrick",
+                    Apellido = "Rose",
+                    Equipo = equipo,
+                    Posicion = Posiciones.BASE,
+                    ValorContrato = 400
+                },
+                new Jugador {
+                    Nombre = "Lonzo",
+                    Apellido = "Ball",
+                    Equipo = equipo,
+                    Posicion = Posiciones.BASE,
+                    ValorContrato = 100
+                },
+                new Jugador {
+                    Nombre = "Dennis",
+                    Apellido = "Rodman",
+                    Equipo = equipo,
+                    Posicion = Posiciones.ALA_PIVOT,
+                    ValorContrato = 500
+                },
+                new Jugador {
+                    Nombre = "Lauri",
+                    Apellido = "Markkanen",
+                    Equipo = equipo,
+                    Posicion = Posiciones.ALA_PIVOT,
+                    ValorContrato = 1000
+                },
+                new Jugador {
+                    Nombre = "Joakim",
+                    Apellido = "Noah",
+                    Equipo = equipo,
+                    Posicion = Posiciones.PIVOT,
+                    ValorContrato = 200
+                },
+                new Jugador {
+                    Nombre = "Horace",
+                    Apellido = "Grant",
+                    Equipo = equipo,
+                    Posicion = Posiciones.PIVOT,
+                    ValorContrato = 300
+                },
+                new Jugador {
+                    Nombre = "LeBron",
+                    Apellido = "James",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.ALERO,
+                    ValorContrato = 400
+                },
+                new Jugador {
+                    Nombre = "Talen",
+                    Apellido = "Horton-Tucker",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.ALERO,
+                    ValorContrato = 100
+                },
+                new Jugador {
+                    Nombre = "Carmelo",
+                    Apellido = "Anthony",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.ALA_PIVOT,
+                    ValorContrato = 300
+                },
+                new Jugador {
+                    Nombre = "Anthony",
+                    Apellido = "Davis",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.ALA_PIVOT,
+                    ValorContrato = 400
+                },
+                new Jugador {
+                    Nombre = "Russell",
+                    Apellido = "Westbrook",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.BASE,
+                    ValorContrato = 200
+                },
+                new Jugador {
+                    Nombre = "Malik",
+                    Apellido = "Monk",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.BASE,
+                    ValorContrato = 100
+                },
+                new Jugador {
+                    Nombre = "DeAndre",
+                    Apellido = "Jordan",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.PIVOT,
+                    ValorContrato = 500
+                },
+                new Jugador {
+                    Nombre = "Dwight",
+                    Apellido = "Howard",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.PIVOT,
+                    ValorContrato = 1000
+                },
+                new Jugador {
+                    Nombre = "Austin",
+                    Apellido = "Reaves",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.ESCOLTA,
+                    ValorContrato = 200
+                },
+                new Jugador {
+                    Nombre = "Jay",
+                    Apellido = "Huff",
+                    Equipo = equipoDos,
+                    Posicion = Posiciones.ESCOLTA,
+                    ValorContrato = 400
+                }
+            };
+
+            var estados = new List<StatsJugXPartido> {
+                new StatsJugXPartido {
+                    Jugador = jugadores[0],
+                    Partido = partido,
+                    Puntos = 2,
+                    Asistencias = 3,
+                    Rebotes = 4,
+                    Robos = 0,
+                    Faltas = 1,
+                    Bloqueos = 2
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[0],
+                    Partido = partidoDos,
+                    Puntos = 3,
+                    Asistencias = 5,
+                    Rebotes = 4,
+                    Robos = 1,
+                    Faltas = 2,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[1],
+                    Partido = partido,
+                    Puntos = 0,
+                    Asistencias = 3,
+                    Rebotes = 10,
+                    Robos = 1,
+                    Faltas = 0,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[1],
+                    Partido = partidoDos,
+                    Puntos = 6,
+                    Asistencias = 0,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 2,
+                    Bloqueos = 2
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[2],
+                    Partido = partido,
+                    Puntos = 5,
+                    Asistencias = 0,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 4,
+                    Bloqueos = 2
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[2],
+                    Partido = partidoDos,
+                    Puntos = 4,
+                    Asistencias = 3,
+                    Rebotes = 1,
+                    Robos = 1,
+                    Faltas = 6,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[3],
+                    Partido = partido,
+                    Puntos = 6,
+                    Asistencias = 1,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[3],
+                    Partido = partidoDos,
+                    Puntos = 4,
+                    Asistencias = 3,
+                    Rebotes = 3,
+                    Robos = 1,
+                    Faltas = 2,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[4],
+                    Partido = partido,
+                    Puntos = 10,
+                    Asistencias = 3,
+                    Rebotes = 3,
+                    Robos = 1,
+                    Faltas = 2,
+                    Bloqueos = 2
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[4],
+                    Partido = partidoDos,
+                    Puntos = 5,
+                    Asistencias = 10,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 3,
+                    Bloqueos = 1
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[5],
+                    Partido = partido,
+                    Puntos = 5,
+                    Asistencias = 10,
+                    Rebotes = 10,
+                    Robos = 1,
+                    Faltas = 0,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[5],
+                    Partido = partidoDos,
+                    Puntos = 0,
+                    Asistencias = 4,
+                    Rebotes = 3,
+                    Robos = 1,
+                    Faltas = 2,
+                    Bloqueos = 10
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[6],
+                    Partido = partido,
+                    Puntos = 0,
+                    Asistencias = 2,
+                    Rebotes = 1,
+                    Robos = 1,
+                    Faltas = 10,
+                    Bloqueos = 2
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[6],
+                    Partido = partidoDos,
+                    Puntos = 0,
+                    Asistencias = 5,
+                    Rebotes = 5,
+                    Robos = 1,
+                    Faltas = 3,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[7],
+                    Partido = partido,
+                    Puntos = 3,
+                    Asistencias = 2,
+                    Rebotes = 3,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 1
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[7],
+                    Partido = partidoDos,
+                    Puntos = 10,
+                    Asistencias = 0,
+                    Rebotes = 3,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[8],
+                    Partido = partido,
+                    Puntos = 15,
+                    Asistencias = 2,
+                    Rebotes = 3,
+                    Robos = 1,
+                    Faltas = 0,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[8],
+                    Partido = partidoDos,
+                    Puntos = 10,
+                    Asistencias = 6,
+                    Rebotes = 5,
+                    Robos = 1,
+                    Faltas = 0,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[9],
+                    Partido = partido,
+                    Puntos = 4,
+                    Asistencias = 5,
+                    Rebotes = 6,
+                    Robos = 1,
+                    Faltas = 0,
+                    Bloqueos = 2
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[9],
+                    Partido = partidoDos,
+                    Puntos = 4,
+                    Asistencias = 5,
+                    Rebotes = 5,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 1
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[10],
+                    Partido = partido,
+                    Puntos = 2,
+                    Asistencias = 3,
+                    Rebotes = 5,
+                    Robos = 1,
+                    Faltas = 0,
+                    Bloqueos = 3
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[10],
+                    Partido = partidoDos,
+                    Puntos = 5,
+                    Asistencias = 2,
+                    Rebotes = 4,
+                    Robos = 1,
+                    Faltas = 0,
+                    Bloqueos = 2
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[11],
+                    Partido = partido,
+                    Puntos = 0,
+                    Asistencias = 3,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 10,
+                    Bloqueos = 2
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[11],
+                    Partido = partidoDos,
+                    Puntos = 0,
+                    Asistencias = 4,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 8,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[12],
+                    Partido = partido,
+                    Puntos = 1,
+                    Asistencias = 1,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 5,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[12],
+                    Partido = partidoDos,
+                    Puntos = 1,
+                    Asistencias = 3,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 6,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[13],
+                    Partido = partido,
+                    Puntos = 0,
+                    Asistencias = 0,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 2,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[13],
+                    Partido = partidoDos,
+                    Puntos = 1,
+                    Asistencias = 2,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 2,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[14],
+                    Partido = partido,
+                    Puntos = 3,
+                    Asistencias = 6,
+                    Rebotes = 4,
+                    Robos = 1,
+                    Faltas = 3,
+                    Bloqueos = 5
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[14],
+                    Partido = partidoDos,
+                    Puntos = 4,
+                    Asistencias = 5,
+                    Rebotes = 0,
+                    Robos = 1,
+                    Faltas = 2,
+                    Bloqueos = 2
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[15],
+                    Partido = partido,
+                    Puntos = 6,
+                    Asistencias = 5,
+                    Rebotes = 4,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 1
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[15],
+                    Partido = partidoDos,
+                    Puntos = 3,
+                    Asistencias = 4,
+                    Rebotes = 6,
+                    Robos = 1,
+                    Faltas = 5,
+                    Bloqueos = 10
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[16],
+                    Partido = partido,
+                    Puntos = 6,
+                    Asistencias = 4,
+                    Rebotes = 3,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 5
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[16],
+                    Partido = partidoDos,
+                    Puntos = 5,
+                    Asistencias = 2,
+                    Rebotes = 0,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 4
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[17],
+                    Partido = partido,
+                    Puntos = 2,
+                    Asistencias = 4,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[17],
+                    Partido = partidoDos,
+                    Puntos = 3,
+                    Asistencias = 5,
+                    Rebotes = 4,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 4
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[18],
+                    Partido = partido,
+                    Puntos = 0,
+                    Asistencias = 4,
+                    Rebotes = 3,
+                    Robos = 1,
+                    Faltas = 2,
+                    Bloqueos = 0
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[18],
+                    Partido = partidoDos,
+                    Puntos = 7,
+                    Asistencias = 3,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 3,
+                    Bloqueos = 7
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[19],
+                    Partido = partido,
+                    Puntos = 4,
+                    Asistencias = 3,
+                    Rebotes = 2,
+                    Robos = 1,
+                    Faltas = 1,
+                    Bloqueos = 7
+                },
+                new StatsJugXPartido {
+                    Jugador = jugadores[19],
+                    Partido = partidoDos,
+                    Puntos = 6,
+                    Asistencias = 3,
+                    Rebotes = 4,
+                    Robos = 1,
+                    Faltas = 0,
+                    Bloqueos = 3
+                }
+            };
+
+            _proyectoDbContext.Equipos.AddRange(equipos);
+            _proyectoDbContext.Partidos.AddRange(partidos);
+            _proyectoDbContext.Jugadores.AddRange(jugadores);
+            _proyectoDbContext.StatsJugXPartido.AddRange(estados);
+            
+            _proyectoDbContext.SaveChanges();
+
+            return Json("Ok");
+        }
+
+
  
         public IActionResult Index(int pagina)
         {
+            if(_proyectoDbContext.Jugadores.FirstOrDefault() == null) {
+                Create();
+            }
            if (User.Identity.IsAuthenticated)
             {
                 if(pagina == 0){
@@ -41,7 +639,7 @@ namespace TP_NT.Controllers
                 var registrosXPagina = 5;
                 var incicio = (pagina - 1) * registrosXPagina;
                 var cantPaginas = cantFilas / registrosXPagina;
-                List<Jugador> jugadores = _proyectoDbContext.Jugadores.Include(x => x.Equipo).Skip(incicio).Take(registrosXPagina).ToList();
+                List<Jugador> jugadores = _proyectoDbContext.Jugadores.Include(x => x.Equipo).OrderBy(x => x.Equipo.Nombre).Skip(incicio).Take(registrosXPagina).ToList();
                 List<EquipoUserJug> equiposJugsTit;
                 List<EquipoUserJug> equiposJugsSup;
                 bool yaHayEquipo = _proyectoDbContext.EquipoUserJugs.Where(x => x.IdUsuario == usuario.IdUsuario).FirstOrDefault() != null;
@@ -358,7 +956,7 @@ namespace TP_NT.Controllers
  
         public IActionResult Ranking()
         {
-            DateTime dt = DateTime.Now;
+            DateTime dt = DateTime.Now; 
             int diff = (7 + (dt.DayOfWeek - DayOfWeek.Monday)) % 7;
             dt = dt.AddDays(-1 * diff).Date;
             DateTime dt1 = dt.AddDays(7);
