@@ -7,7 +7,7 @@ let dict = {};
 
 function ValidateJugSelection(nombre, elemento)  
 {  
-  contrato = elemento.selectedOptions[0].text.substr(-4);
+  contrato = elemento.selectedOptions[0].text.substr(-5);
    if(nombre in dict) {
         usuarioPlata = parseFloat(document.getElementById("plata").innerHTML) + parseFloat(dict[nombre]);
         dict[nombre] = contrato;
