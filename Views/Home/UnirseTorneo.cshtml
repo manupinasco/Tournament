@@ -24,7 +24,7 @@
                     <tr>
                       <td class="text-primary">@item.Creador.Nombre</td>
                       <td>@item.Nombre</td>
-                      <td><a class="nav-link" >Inscribirse</a></td>
+                      <td><a class="nav-link" asp-controller="Home" asp-action="UnirseTorneo" asp-route-id="@item.Id">Inscribirse</a></td>
                     </tr>
                 }
             </tbody>
